@@ -1,0 +1,30 @@
+[cols="3,2,2,5",options="header"]
+|===
+|Path |Type |Default |Description
+
+|`pass:c[spec.apiVersion]`
+|string
+|
+|ApiVersion is the claim's apiVersion ("group/version"). Required together with Kind when the Action lives in a claim namespace.
+
+|`pass:c[spec.args]`
+|map[string]string
+|
+|Args are made available to the job. Stored, not injected for now.
+
+|`pass:c[spec.claim]`
+|string
+|
+|Claim identifies the service instance; with ApiVersion and Kind it derives the instance namespace when the Action lives in a claim namespace.
+
+|`pass:c[spec.kind]`
+|string
+|
+|Kind is the claim's kind. Required together with ApiVersion when the Action lives in a claim namespace.
+
+|`pass:c[spec.type]` *(required)*
+|string
+|
+|Type names the Definition (in the instance namespace) to execute. +
+_Validation:_ min length 1
+|===

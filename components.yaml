@@ -1,0 +1,22 @@
+# System components of the Helmetica framework, rendered into docs.helmetica.io.
+# Reagents are not listed here: they are discovered via the GitHub topic below.
+#
+# group: sidebar group (Framework and Reagents are reserved)
+# kind:  operator (API reference from config/crd/bases) | tool | chart
+# enabled: false until the repo has a docs/ skeleton merged
+org: helmetica-framework
+reagentTopic: helmetica-reagent
+components:
+- {repo: chrysopoeia, group: Operators, kind: operator}
+- {repo: adept, group: Operators, kind: operator}
+- {repo: ampulla, group: Operators, kind: operator}
+- {repo: sigillum, group: Operators, kind: operator}
+- {repo: custos, group: Operators, kind: operator}
+- {repo: libra, group: Operators, kind: operator}
+- {repo: aludel-cloudscale, group: Operators, kind: tool}
+- {repo: transmuter, group: Building reagents, kind: tool}
+- {repo: cupel, group: Building reagents, kind: tool}
+- {repo: ferment, group: Building reagents, kind: chart}
+- {repo: azoth, group: Building reagents, kind: chart}
+- {repo: alembic, group: Platform, kind: tool}
+- {repo: athanor, group: Platform, kind: tool}

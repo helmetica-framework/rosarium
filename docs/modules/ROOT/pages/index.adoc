@@ -1,0 +1,37 @@
+= Helmetica Framework
+:page-role: home
+
+Self-service managed services from plain Helm charts.
+
+[.doors]
+--
+[.door]
+====
+.I want a service
+Browse the reagents, then order and configure an instance.
+
+* xref:reagents.adoc[Reagent catalogue]
+* xref:getting-started.adoc[Getting started]
+====
+
+[.door]
+====
+.I build a service
+Turn an upstream chart into a reagent.
+
+ifdef::rosarium-has-transmuter[* xref:transmuter::index.adoc[Transmuter]]
+ifdef::rosarium-has-ferment[* xref:ferment::index.adoc[Ferment]]
+ifdef::rosarium-has-azoth[* xref:azoth::index.adoc[Azoth]]
+* xref:concepts.adoc[Concepts]
+====
+
+[.door]
+====
+.I run or develop the framework
+Install it, understand the architecture, dive into the operators.
+
+* xref:architecture.adoc[Architecture]
+ifdef::rosarium-has-alembic[* xref:alembic::index.adoc[Alembic]]
+ifdef::rosarium-has-athanor[* xref:athanor::index.adoc[Athanor]]
+====
+--

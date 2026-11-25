@@ -1,0 +1,3 @@
+= Architecture
+
+TODO: how the operators fit together: chrysopoeia turns reagents into CRDs and releases instances; adept runs rituals; ampulla backs up; sigillum handles networking; custos hands out credentials; libra collects billing data.

@@ -1,0 +1,38 @@
+/* Helmetica additions on top of the vshn Antora UI. */
+
+/* Persona doors on the landing page. */
+.doors > .content {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.doors .door {
+  flex: 1 1 14rem;
+  margin: 0;
+}
+.doors .door > .title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: normal;
+}
+@media (max-width: 768px) {
+  .doors > .content { flex-direction: column; }
+}
+
+/* Component explorer grouped by role. */
+.nav-panel-explore .component-group {
+  display: block;
+  margin-top: 0.75rem;
+}
+.nav-panel-explore .group-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.nav-panel-explore .group-components {
+  list-style: none;
+  padding-left: 0.5rem;
+}
