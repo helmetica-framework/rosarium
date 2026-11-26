@@ -35,3 +35,7 @@ ifdef::rosarium-has-alembic[* xref:alembic::index.adoc[Alembic]]
 ifdef::rosarium-has-athanor[* xref:athanor::index.adoc[Athanor]]
 ====
 --
+
+== All components
+
+include::partial$components.adoc[opts=optional]
