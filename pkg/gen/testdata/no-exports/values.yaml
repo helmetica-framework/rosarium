@@ -1,0 +1,5 @@
+'#internal':
+  export: false
+internal:
+  # Not part of the API.
+  replicas: 1

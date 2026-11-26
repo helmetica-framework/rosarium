@@ -1,0 +1,34 @@
+[cols="3,2,2,5",options="header"]
+|===
+|Path |Type |Default |Description
+
+|`pass:c[backup]`
+|object
+|
+|How this service is backed up.
+
+|`pass:c[backup.enabled]`
+|boolean
+|`pass:c[true]`
+|Whether the service is backed up at all.
+
+|`pass:c[backup.mode]`
+|enum: Schedule, BucketOnly
+|`pass:c[Schedule]`
+|Who takes the backups.
+
+|`pass:c[network.allowedNamespaces]`
+|[]string
+|`pass:c[[\]]`
+|Namespaces allowed in.
+
+|`pass:c[service.plan]`
+|string
+|`pass:c[standard-1]`
+|Cpu and memory \| of the redis container. See plans.
+
+|`pass:c[service.storage]`
+|string
+|`pass:c[10Gi]`
+|_Validation:_ pattern `pass:c[^[0-9\]+Gi$]`
+|===

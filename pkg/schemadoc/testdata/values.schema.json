@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "backup": {
+      "type": "object",
+      "description": "How this service is backed up.",
+      "properties": {
+        "mode": {"type": "string", "enum": ["Schedule", "BucketOnly"], "default": "Schedule", "description": "Who takes the backups."},
+        "enabled": {"type": "boolean", "default": true, "description": "Whether the service is backed up at all."}
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "plan": {"type": "string", "default": "standard-1", "description": "Cpu and memory | of the redis container.\nSee plans."},
+        "storage": {"type": "string", "default": "10Gi", "pattern": "^[0-9]+Gi$"}
+      }
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "allowedNamespaces": {"type": "array", "default": [], "items": {"type": "string"}, "description": "Namespaces allowed in."}
+      }
+    }
+  }
+}

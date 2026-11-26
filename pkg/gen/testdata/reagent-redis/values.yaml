@@ -1,0 +1,267 @@
+# How this service is backed up. The backup controller reads these off the instance; the
+# framework itself knows nothing about backups.
+backup:
+  # Whether the service is backed up at all.
+  enabled: true
+
+  # Who takes the backups.
+  #   Schedule   - the backup controller provisions a bucket and drives k8up over the
+  #                service's volumes.
+  #   BucketOnly - it provisions the bucket and stops there, for a service whose own
+  #                operator writes backups to object storage (CloudNativePG, MariaDB).
+  '#mode':
+    type: string
+    enum: [Schedule, BucketOnly]
+  mode: Schedule
+
+  # When each job runs, as a cron expression or a k8up shortcut like `@daily-random`.
+  # Only used with mode Schedule.
+  #
+  # An empty backup gets a nightly time between 22:00 and 06:00, generated from the name
+  # of the instance so that it stays put across upgrades and no two instances start in the
+  # same minute. Empty prune and check take the backup controller's default, which runs
+  # them weekly.
+  schedule:
+    backup: ""
+    prune: ""
+    check: ""
+
+  # The COSI classes the bucket is provisioned from. Empty takes the backup controller's
+  # default, which is how a cluster keeps all its backups in one place.
+  bucketClassName: ""
+  bucketAccessClassName: ""
+
+  # How many backups survive a prune. All zero takes the backup controller's default
+  # retention. Only used with mode Schedule.
+  retention:
+    keepLast: 0
+    keepHourly: 0
+    keepDaily: 0
+    keepWeekly: 0
+    keepMonthly: 0
+    keepYearly: 0
+
+# Collect billing relevant values from the claim.
+'#billing':
+  epxort: false
+billing:
+  # Whether the framework should bill this service
+  enabled: true
+  metadata:
+    plan: "cel: values.service.plan"
+  items:
+    storage: "cel: values.service.storage"
+    replicas: "cel: values.service.replicas" 
+
+network:
+  # Whether the framework seals this service off at all. Not settable on a claim.
+  '#enabled':
+    export: false
+  enabled: true
+
+  # A list of allowed namespaces. The namespace where the claim resides is
+  # always included implicitly.
+  '#allowedNamespaces':
+    items:
+      '#':
+        type: string
+  allowedNamespaces: []
+
+  # Allow access from all namespaces.
+  allowAllNamespaces: false
+
+  # Make this service reachable from outside the cluster. The address and port are
+  # reported in the REDIS_EXTERNAL_* credentials. Sentinel is not exposed.
+  expose: false
+
+  # What `expose` makes reachable. Not settable on a claim. With three replicas the
+  # backend is the proxy, for the same reason REDIS_HOST is (templates/credentials.yaml).
+  '#exposures':
+    export: false
+  exposures: >-
+    cel: [{'name': 'redis', 'protocol': 'TCP', 'backend': {
+    'service': values.service.replicas > 1 ? 'redis-haproxy' : 'redis', 'port': 6379}}]
+
+# When this service's maintenance runs. The adept reads these off the instance.
+maintenance:
+  # Whether this service takes part in maintenance at all. Not settable on a claim.
+  '#enabled':
+    export: false
+  enabled: true
+
+  # Which MaintenanceWindow this instance starts in. Empty takes the
+  # operator's default window.
+  window: ""
+
+  # Whether maintenance runs at all. A suspended instance keeps its schedule
+  # and does not fire it.
+  suspend: false
+
+credentials:
+  # Rendered by templates/credentials.yaml rather than azoth: the mapping varies with the
+  # replica count, which is a helm decision this chart makes for itself. Not settable on a
+  # claim.
+  '#enabled':
+    export: false
+  enabled: false
+
+  # Prefix of the Secret name holding the connection details. Defaults to the claim name.
+  prefix: ""
+
+alerting:
+  enabled: true
+  serviceOperator:
+    '#emailAddresses':
+      items:
+        '#':
+          type: string
+    emailAddresses: []
+
+service:
+  # The size of the instance. The number is gibibytes of memory the pod may use, and cpu
+  # follows it at 250 millicores per gibibyte. Requests are set equal to the limits, so the
+  # pod is Guaranteed.
+  '#plan':
+    type: string
+    enum: [standard-1, standard-2, standard-4, standard-8]
+  plan: standard-1
+
+  # How many replicas of Redis should be running.
+  # 1 is a single instance
+  # 3 is for a replication cluster with Sentinel
+  '#replicas':
+    type: integer
+    enum: [1,3]
+  replicas: 1
+
+  # Which Redis version runs.
+  # 8.x is the newest 8 release
+  # 7.2 is the 7.x LTS release
+  # 8.2 is the 8.x LTS release (default)
+  '#version':
+    type: string
+    enum: ['7.2', '8.2', '8.x']
+  version: '8.2'
+
+  # The size of the data volume. Unrelated to the plan: a dataset that fits in memory still
+  # needs room on disk for the append only file and the snapshots beside it. Must be a valid
+  # quantity, and a claim cannot decrease it.
+  '#storage':
+    max_length: 32
+    validation:
+      - rule: "isQuantity(self)"
+        message: "storage must be a valid quantity"
+      - rule: "!isQuantity(self) || quantity(self).compareTo(quantity(oldSelf)) >= 0"
+        message: "storage cannot be decreased"
+        message_expression: "'storage cannot be decreased from ' + oldSelf + ' to ' + self"
+  storage: 10Gi
+
+  # redis.conf entries.
+  # maxmemory and min-replicas-to-write are computed from the plan and the replica count, and
+  # win over anything set here. Values are strings, so a number needs quoting.
+  '#config':
+    items:
+      '#':
+        type: string
+  config: {}
+
+# The image each service.version runs. Renovate keeps each line inside its range.
+'#versions':
+  export: false
+versions:
+  # renovate: datasource=docker depName=public.ecr.aws/docker/library/redis versioning=regex:^(?<major>7)\.(?<minor>2)\.(?<patch>\d+)-alpine$
+  '7.2': 7.2.17-alpine@sha256:3d2b46efa3280299fe6e117a33fccdfeb495c39098f95d076fadd12a88005b0a
+  # renovate: datasource=docker depName=public.ecr.aws/docker/library/redis versioning=regex:^(?<major>8)\.(?<minor>2)\.(?<patch>\d+)-alpine$
+  '8.2': 8.2.11-alpine@sha256:fe9daae35cd4fd6ec22416aa4fe0cf6b3e36741e06ff45b9986253fe2a81c041
+  # renovate: datasource=docker depName=public.ecr.aws/docker/library/redis versioning=regex:^(?<major>8)\.(?<minor>\d+)\.(?<patch>\d+)-alpine$
+  '8.x': 8.10.3-alpine@sha256:71885d8cc6e42f2bc0aa2eb853bfc4be200b5108a46ac50e117ae1df0531fb80
+
+# Debug holds methods to debug the Helmetica bundle.
+debug:
+  # heartbeatAlert adds an alert always evaluating to be firing.
+  heartbeatAlert: false
+
+'#redis':
+  export: false
+redis:
+  replicas: "cel: values.service.replicas"
+
+  fullnameOverride: redis
+
+  image:
+    repository: public.ecr.aws/docker/library/redis
+    tag: "cel: values.versions[values.service.version]"
+
+  auth: true
+  existingSecret: '{{ .Release.Name }}-auth'
+  authKey: auth
+
+  rbac:
+    create: true
+
+  hardAntiAffinity: true
+
+  podDisruptionBudget:
+    maxUnavailable: 1
+
+  configmapTest:
+    image:
+      repository: koalaman/shellcheck
+      tag: v0.11.0@sha256:61862eba1fcf09a484ebcc6feea46f1782532571a34ed51fedf90dd25f925a8d
+
+  haproxy:
+    enabled: "cel: values.service.replicas > 1"
+    image:
+      repository: public.ecr.aws/docker/library/haproxy
+      tag: 3.4.7-alpine@sha256:5312d37032c079c4937d45ef63758852434351f3b425a3703521fd999837abcf
+
+  exporter:
+    enabled: true
+    image: quay.io/oliver006/redis_exporter
+    tag: v1.97.0@sha256:f5f903fbe77571d455ede0453b084d6840bc62fc105efac001034421cab83b99
+    serviceMonitor:
+      enabled: true
+
+  persistentVolume:
+    size: "cel: values.service.storage"
+    annotations:
+      k8up.io/backup: '"false"'
+
+  extraVolumes:
+    - name: backup-script
+      configMap:
+        name: backup
+
+  sentinel:
+    quorum: "cel: values.service.replicas > 1 ? 2 : 1"
+    config:
+      down-after-milliseconds: 3000
+      failover-timeout: 5000
+
+  redis:
+    config: >-
+      cel: cel.bind(computed, {'maxmemory': cel.bind(n, int(values.service.plan.split('-')[1]), string(n * 768) + 'mb'),
+      'min-replicas-to-write': values.service.replicas > 1 ? 1 : 0},
+      (values.service.config.map(k, k) + computed.map(k, k)).distinct()
+      .transformMapEntry(i, k, {k: k in computed ? computed[k] : values.service.config[k]}))
+
+    # Requests equal limits, so the pod is Guaranteed.
+    resources:
+      requests:
+        cpu: "cel: cel.bind(n, int(values.service.plan.split('-')[1]), string(n * 250) + 'm')"
+        memory: "cel: cel.bind(n, int(values.service.plan.split('-')[1]), string(n) + 'Gi')"
+      limits:
+        cpu: "cel: cel.bind(n, int(values.service.plan.split('-')[1]), string(n * 250) + 'm')"
+        memory: "cel: cel.bind(n, int(values.service.plan.split('-')[1]), string(n) + 'Gi')"
+
+    startupProbe:
+      # About 30 minutes, should be enough for the largest instances.
+      failureThreshold: 120
+
+    podAnnotations:
+      k8up.io/backupcommand: sh /scripts/backup.sh
+      k8up.io/file-extension: .tar
+
+    extraVolumeMounts:
+      - name: backup-script
+        mountPath: /scripts

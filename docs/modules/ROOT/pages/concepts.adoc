@@ -1,0 +1,44 @@
+= Concepts
+
+The framework borrows its vocabulary from alchemy.
+
+[cols="1,4"]
+|===
+|Term |Meaning
+
+|*Reagent*
+|A service chart wrapping an upstream chart (the prima materia). Created by transmuting the ferment; what end users order.
+
+|*Prima materia*
+|The raw upstream Helm chart (repository URL + version) a transmutation starts from. It ends up as a dependency of the reagent.
+
+|*Ferment*
+|The starter chart (`oci://ghcr.io/helmetica-framework/ferment`) every reagent is scaffolded from.
+
+|*Azoth*
+|The library chart holding the templates every reagent renders on top of its service, so a fix reaches all reagents through a version bump instead of a copy.
+
+|*Transmuter*
+|The framework's chart tool: scaffolds reagents from the ferment and assays them.
+
+|*Chrysopoeia*
+|The controller that turns a published reagent into a CRD generated from its `values.yaml`, and releases claimed instances into their own namespace.
+
+|*Claim / instance*
+|An object of a reagent's CRD: one ordered service.
+
+|*Ritual*
+|A packaged `Definition` manifest in a reagent describing a single or scheduled operational action (restart, maintenance). Executed by adept via `Action` objects.
+
+|*Assay*
+|Non-destructive purity test of a reagent: chart validity plus CRD breaking-change detection against the latest published version of the same major. Offline, no cluster.
+
+|*Touchstone*
+|The end-to-end test of a reagent against a running athanor: publish, generate the CRD, claim an instance, check the release.
+
+|*Computed values*
+|What a reagent's `cel:` expressions evaluate to for a given claim. Helm cannot evaluate them, so `transmuter values` writes them to a file the unit tests read.
+
+|*Athanor*
+|The local development cluster, started with `just ignite`.
+|===
