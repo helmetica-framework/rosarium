@@ -13,7 +13,7 @@ antora_image := "ghcr.io/vshn/antora:" + antora_version
 # renovate: datasource=npm depName=antora
 antora_npm_version := "3.1.14"
 antora_cmd := if engine == "none" { "npx --yes -p antora@" + antora_npm_version + " -p asciidoctor-kroki antora" } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora " + antora_image }
-pagefind_cmd := if engine == "none" { "npx --yes pagefind@" + pagefind_version } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora --entrypoint npx " + antora_image + " --yes pagefind@" + pagefind_version }
+pagefind_cmd := if engine == "none" { "npx --yes pagefind@" + pagefind_version } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora --env npm_config_cache=/antora/.cache/npm --entrypoint npx " + antora_image + " --yes pagefind@" + pagefind_version }
 
 _default:
     @just --list
