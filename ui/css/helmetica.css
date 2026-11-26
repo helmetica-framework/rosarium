@@ -36,3 +36,18 @@
   list-style: none;
   padding-left: 0.5rem;
 }
+
+/* Component index on the landing page. */
+.component-index > .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0 1.5rem;
+}
+.component-index .ulist > .title {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.component-index ul {
+  margin-top: 0.25rem;
+}

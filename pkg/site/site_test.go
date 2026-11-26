@@ -284,3 +284,37 @@ func TestWritePlaybook_DefaultsToProduction(t *testing.T) {
 		t.Errorf("production site = %v", site)
 	}
 }
+
+func TestWriteComponents(t *testing.T) {
+	p := filepath.Join(t.TempDir(), "components.adoc")
+	op := adept()
+	op.Repo.Description = "Runs [actions] on {instances}"
+	al := Source{Name: "alembic", Title: "Alembic", Group: config.GroupPlatform}
+	root := Source{Name: "ROOT", Title: "Helmetica Framework", Group: config.GroupFramework}
+	if err := WriteComponents(p, []Source{al, op, redis(), root}); err != nil {
+		t.Fatal(err)
+	}
+	c := read(t, p)
+	contains(t, "components", c,
+		"[.component-index]",
+		".Reagents\n* xref:reagents.adoc[Reagent catalogue]: 1 reagent\n",
+		".Operators\n* xref:adept::index.adoc[Adept]: Runs \\[actions] on \\{instances}\n",
+		".Platform\n* xref:alembic::index.adoc[Alembic]\n")
+	iRe, iOp, iPl := strings.Index(c, ".Reagents"), strings.Index(c, ".Operators"), strings.Index(c, ".Platform")
+	if iRe < 0 || iOp < iRe || iPl < iOp {
+		t.Errorf("groups out of order:\n%s", c)
+	}
+	for _, bad := range []string{"ROOT::", ".Framework", "reagent-redis::", ".Building reagents"} {
+		if strings.Contains(c, bad) {
+			t.Errorf("unexpected %q:\n%s", bad, c)
+		}
+	}
+}
+
+func TestWriteComponents_NoReagents(t *testing.T) {
+	p := filepath.Join(t.TempDir(), "components.adoc")
+	if err := WriteComponents(p, []Source{adept()}); err != nil {
+		t.Fatal(err)
+	}
+	contains(t, "components", read(t, p), ".Reagents\n* xref:reagents.adoc[Reagent catalogue]: none published yet\n")
+}

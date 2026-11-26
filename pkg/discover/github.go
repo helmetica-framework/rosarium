@@ -135,6 +135,11 @@ func (c Client) Reagents(ctx context.Context, org, topic string) (found []Repo, 
 	if err != nil {
 		return nil, nil, err
 	}
+	return c.ReagentsIn(ctx, repos, org, topic)
+}
+
+// ReagentsIn is Reagents over an already fetched OrgRepos listing.
+func (c Client) ReagentsIn(ctx context.Context, repos []Repo, org, topic string) (found []Repo, skipped []Skipped, err error) {
 	for _, r := range repos {
 		if r.Archived || !slices.Contains(r.Topics, topic) {
 			continue

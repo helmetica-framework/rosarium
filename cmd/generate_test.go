@@ -3,11 +3,15 @@ package cmd
 import (
 	"bytes"
 	"context"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/helmetica-framework/rosarium/pkg/discover"
 )
 
 func gitRepo(t *testing.T, files map[string]string) string {
@@ -88,6 +92,7 @@ func TestGenerate_LocalOnly(t *testing.T) {
 		"root/modules/ROOT/pages/reagents.adoc",
 		"ui/css/helmetica.css",
 		"ui/partials/nav-explore.hbs",
+		"root/modules/ROOT/partials/components.adoc",
 		"generated/reagent-redis/modules/ROOT/pages/references/parameters.adoc",
 		"generated/adept/modules/ROOT/pages/references/api.adoc",
 		".git",
@@ -152,5 +157,26 @@ func TestGenerate_SiteURL(t *testing.T) {
 	pb := copyFile(t, filepath.Join(opts.Out, "playbook.yml"))
 	if !strings.Contains(pb, "url: https://docs.helmetica.io/pr-preview/pr-7") || !strings.Contains(pb, "robots: disallow") {
 		t.Errorf("playbook:\n%s", pb)
+	}
+}
+
+func TestGenerate_ComponentDescriptionsFromGitHub(t *testing.T) {
+	opts := fixture(t, true)
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/orgs/helmetica-framework/repos" {
+			http.NotFound(w, r)
+			return
+		}
+		w.Write([]byte(`[{"name":"adept","description":"Runs actions on instances","default_branch":"main"}]`))
+	}))
+	defer srv.Close()
+	opts.NoDiscover = false
+	opts.Client = discover.Client{HTTP: srv.Client(), APIBase: srv.URL, RawBase: srv.URL}
+	if err := runGenerate(context.Background(), opts, &bytes.Buffer{}); err != nil {
+		t.Fatal(err)
+	}
+	c := copyFile(t, filepath.Join(opts.Out, "root/modules/ROOT/partials/components.adoc"))
+	if !strings.Contains(c, "xref:adept::index.adoc[Adept]: Runs actions on instances") {
+		t.Errorf("components partial:\n%s", c)
 	}
 }

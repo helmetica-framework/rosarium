@@ -97,6 +97,18 @@ func runGenerate(ctx context.Context, o generateOptions, log io.Writer) error {
 	// System components: any failure fails the build.
 	var sources []site.Source
 	listed := map[string]bool{}
+	// One org listing serves both the reagent discovery and the component
+	// descriptions on the landing page.
+	var orgRepos []discover.Repo
+	if !o.NoDiscover {
+		if orgRepos, err = o.Client.OrgRepos(ctx, cfg.Org); err != nil {
+			return err
+		}
+	}
+	descriptions := map[string]string{}
+	for _, r := range orgRepos {
+		descriptions[r.Name] = r.Description
+	}
 	for _, c := range cfg.Components {
 		listed[c.Repo] = true
 		if !c.Enabled {
@@ -111,6 +123,7 @@ func runGenerate(ctx context.Context, o generateOptions, log io.Writer) error {
 			return fmt.Errorf("%s: %w", c.Repo, err)
 		}
 		s.Group, s.Branch, s.Repo = c.Group, c.Branch, repoInfo(c.Repo)
+		s.Repo.Description = descriptions[c.Repo]
 		sources = append(sources, s)
 	}
 
@@ -118,7 +131,7 @@ func runGenerate(ctx context.Context, o generateOptions, log io.Writer) error {
 	var candidates []discover.Repo
 	var skipped []discover.Skipped
 	if !o.NoDiscover {
-		found, sk, err := o.Client.Reagents(ctx, cfg.Org, cfg.ReagentTopic)
+		found, sk, err := o.Client.ReagentsIn(ctx, orgRepos, cfg.Org, cfg.ReagentTopic)
 		if err != nil {
 			return err
 		}
@@ -199,6 +212,9 @@ func runGenerate(ctx context.Context, o generateOptions, log io.Writer) error {
 		}
 	}
 	if err := site.WriteCatalogue(filepath.Join(out, "root", "modules", "ROOT", "pages", "reagents.adoc"), reagents, skipped); err != nil {
+		return err
+	}
+	if err := site.WriteComponents(filepath.Join(out, "root", "modules", "ROOT", "partials", "components.adoc"), sources); err != nil {
 		return err
 	}
 	all := append([]site.Source{{Name: "ROOT", Title: "Helmetica Framework", Group: config.GroupFramework}}, sources...)
