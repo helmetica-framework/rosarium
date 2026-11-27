@@ -1,44 +1,126 @@
 = Concepts
 
-The framework borrows its vocabulary from alchemy.
+Helmetica names most of its parts after alchemy.
+The table lists every term used across the framework: what it meant to an alchemist, and what it is for here.
+Terms without an alchemical origin have a dash in the middle column.
 
-[cols="1,4"]
+[cols="1,2,3",options="header"]
 |===
-|Term |Meaning
+|Term |In alchemy |In the Helmetica framework
 
-|*Reagent*
-|A service chart wrapping an upstream chart (the prima materia). Created by transmuting the ferment; what end users order.
+|[[action]]Action
+|—
+|How you ask for a ritual to be run on an instance. You name the ritual, xref:adept::index.adoc[adept] runs it once and reports back whether it worked. Running the same ritual again means creating a new one.
 
-|*Prima materia*
-|The raw upstream Helm chart (repository URL + version) a transmutation starts from. It ends up as a dependency of the reagent.
+|[[adept]]Adept
+|An alchemist who has attained the secret knowledge and performs the rituals.
+|The operator that carries out rituals. It picks up your requests and runs them where the instance lives, so you never have to reach into an instance namespace yourself.
 
-|*Ferment*
-|The starter chart (`oci://ghcr.io/helmetica-framework/ferment`) every reagent is scaffolded from.
+|[[aludel]]Aludel
+|The sealed vessel an alchemist sublimes into: a container you put things in and close.
+|The piece that hands out object storage. A workload asks for a bucket and gets credentials back, with nobody logging into the cloud provider's control panel.
 
-|*Azoth*
+|[[approval]]Approval
+|—
+|Your say in when an instance moves to a new revision. Either it happens automatically, or new revisions wait until someone approves them, which lets you review a change before it reaches a running service.
+
+|[[assay]]Assay
+|Testing an ore or alloy to determine its purity and content.
+|The safety check on a reagent before you publish it: chart validity plus CRD breaking-change detection against the latest published version of the same major. It touches nothing and needs no cluster.
+
+|[[athanor]]Athanor
+|The alchemist's slow furnace, which holds a steady heat for days.
+|Your development environment: a throwaway cluster with the whole framework already in it, so you can build and try out a reagent locally.
+
+|[[azoth]]Azoth
+|The universal solvent, the mercury of the philosophers, the active principle in every substance.
 |The library chart holding the templates every reagent renders on top of its service, so a fix reaches all reagents through a version bump instead of a copy.
 
-|*Transmuter*
-|The framework's chart tool: scaffolds reagents from the ferment and assays them.
+|[[bundle]]Bundle API group
+|—
+|The API group of a generated CRD, `<ClaimDefinition name>.helmetica-bundles.io`, for example `v0.redis.helmetica-bundles.io`. It keeps each service's kind apart from everything else in the cluster.
 
-|*Chrysopoeia*
-|The controller that turns a published reagent into a CRD generated from its `values.yaml`, and releases claimed instances into their own namespace.
+|[[chrysopoeia]]Chrysopoeia
+|Gold-making, the transmutation of base metal into gold.
+|The operator that turns a published reagent into something users can order. It generates a CRD from the chart's `values.yaml` and releases every claim into its own instance namespace.
 
-|*Claim / instance*
-|An object of a reagent's CRD: one ordered service.
+|[[claim]]Claim
+|—
+|What a user creates to order an instance of a service. It says which version they want and how it is configured, and points at where the running instance ended up.
 
-|*Ritual*
-|A packaged `Definition` manifest in a reagent describing a single or scheduled operational action (restart, maintenance). Executed by adept via `Action` objects.
+|[[claimdefinition]]ClaimDefinition
+|—
+|How a service is installed on a cluster, one per major version. It says which chart to offer and where to look for new versions of it. Its name becomes the bundle API group. Once it exists, users can order instances of the service.
 
-|*Assay*
-|Non-destructive purity test of a reagent: chart validity plus CRD breaking-change detection against the latest published version of the same major. Offline, no cluster.
+|[[claimrevision]]ClaimRevision
+|—
+|A record of how a claim was configured at one point in time. The trail of them shows what changed, and it is what approval acts on.
 
-|*Touchstone*
-|The end-to-end test of a reagent against a running athanor: publish, generate the CRD, claim an instance, check the release.
-
-|*Computed values*
+|[[computed-values]]Computed values
+|—
 |What a reagent's `cel:` expressions evaluate to for a given claim. Helm cannot evaluate them, so `transmuter values` writes them to a file the unit tests read.
 
-|*Athanor*
-|The local development cluster, started with `just ignite`.
+|[[cupel]]Cupel
+|A shallow, porous vessel used in assaying to separate precious metals and reveal their true content.
+|The tool for seeing what a change would do before it happens. It renders two things side by side: a chart against a newer one, or against a running instance.
+
+|[[definition]]Definition
+|—
+|The recipe behind a ritual: what happens when someone asks for that operation. A reagent ships one per operation it supports.
+
+|[[digest]]Digest
+|Digestion: gentle, prolonged heating of matter in a closed vessel.
+|The step that installs the supporting pieces into the development cluster. Rarely run on its own, since igniting the furnace does it for you.
+
+|[[ferment]]Ferment
+|A small bit of transformed matter added to a base mass to convert the whole, like leaven in dough. The philosopher's stone is often called ferment for this reason.
+|The starter chart every reagent is created from. It brings the day-2 features along: operations, backups, network policies, so you don't build them per service.
+
+|[[hearth]]Hearth
+|The floor of the furnace, where the fire is laid.
+|Where the development environment keeps the supporting pieces it installs, one folder each. Edit one and re-ignite to change what your local cluster runs.
+
+|[[helmetica]]Helmetica
+|From Hermetic, after Hermes Trismegistus, the mythical father of alchemy.
+|The framework itself. It lets you offer one Helm chart as a service that users can order many instances of.
+
+|[[ignite]]Ignite
+|Lighting the furnace.
+|Starting the development environment (`just ignite`): you get a cluster with everything installed and are ready to work.
+
+|[[instance-namespace]]Instance namespace
+|—
+|The namespace one ordered instance lives in, created for it and removed with it. It keeps instances of the same service from interfering with each other.
+
+|[[ledger]]Ledger
+|—
+|Looking through an instance's history with `cupel ledger`: what it was configured with before, what has changed since, and approving a pending change from there.
+
+|[[prima-materia]]Prima materia
+|The first matter, the formless raw substance every transmutation starts from.
+|The upstream Helm chart (repository URL and version) you want to offer as a service. You don't rewrite it, it ends up as a dependency of the reagent.
+
+|[[quench]]Quench
+|Plunging hot metal into liquid to cool it, ending the work.
+|Tearing the development cluster down when you are done with it, or when you want a clean one.
+
+|[[reagent]]Reagent
+|A substance added to bring about a reaction.
+|A service chart: an upstream chart wrapped so the framework can offer it. This is what a service maintainer maintains, publishes and ships, and what users order.
+
+|[[ritual]]Ritual
+|The prescribed sequence of operations an adept performs on matter.
+|An operation a service offers on a running instance, for example a restart or maintenance. Shipped with the reagent as a `Definition`, so users can trigger it without knowing how the service works inside.
+
+|[[touchstone]]Touchstone
+|The dark stone an assayer streaks gold across to read its purity.
+|The end-to-end test of a reagent against a running athanor: it publishes the chart, orders an instance from it and checks that the instance comes up. The one that ships is generic, so add the checks that matter for your service.
+
+|[[transmuter]]Transmuter
+|To transmute: to change one substance into another.
+|The tool a service maintainer starts with. It turns an upstream chart into a reagent, adds rituals to it, and assays it. After that the reagent is yours to adjust.
+
+|[[weigh]]Weigh
+|Putting two samples on the assayer's balance to see which way they tip.
+|Comparing two things with `cupel weigh` and seeing exactly what differs, typically a running instance against the version you are thinking of moving it to.
 |===
