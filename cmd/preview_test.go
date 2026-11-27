@@ -86,6 +86,11 @@ func TestAntoraCommand(t *testing.T) {
 	if name != "npx" || !slices.Contains(args, "antora@"+antoraNPMVersion) {
 		t.Errorf("npx fallback = %s %v", name, args)
 	}
+	// asciidoctor-kroki 1.0+ needs Asciidoctor.js 3; Antora 3.1 ships 2 and
+	// fails on the first diagram with "block.$!= is not a function".
+	if !slices.Contains(args, "asciidoctor-kroki@0.18.2") {
+		t.Errorf("npx fallback must pin asciidoctor-kroki to 0.x: %v", args)
+	}
 	name, args = antoraCommand("docker", "/out", "/repo", "/out/playbook.yml")
 	if name != "docker" || !slices.Contains(args, "/repo:/repo") || !slices.Contains(args, antoraImage) {
 		t.Errorf("docker = %s %v", name, args)
@@ -107,5 +112,43 @@ func TestPreview_KindOverride(t *testing.T) {
 	}
 	if _, err := os.Stat(filepath.Join(out, "generated", "azoth")); err == nil {
 		t.Error("--kind chart must not generate a Parameters page")
+	}
+}
+
+func TestPreview_StubsCrossComponentXrefTargets(t *testing.T) {
+	repo := gitRepo(t, map[string]string{
+		"docs/antora.yml": "name: cupel\nversion: ~\n",
+		"docs/modules/ROOT/pages/index.adoc": "= Cupel\n\n" +
+			"See xref:azoth::explanations/backup.adoc#modes[backup], xref:azoth:ROOT:how-tos/develop.adoc[develop],\n" +
+			"xref:ROOT::guidelines.adoc[guidelines], xref:ROOT::concepts.adoc[concepts] and xref:own.adoc[own].\n",
+	})
+	out := t.TempDir()
+	rootDocs := fstest.MapFS{
+		"docs/antora.yml":                           {Data: []byte("name: ROOT\nversion: ~\n")},
+		"docs/modules/ROOT/pages/concepts.adoc":     {Data: []byte("= Concepts\n")},
+		"docs/modules/ROOT/pages/architecture.adoc": {Data: []byte("= Architecture\n\nxref:azoth::references/templates.adoc[templates]\n")},
+		"components.yaml":                           {Data: []byte("org: helmetica-framework\ncomponents:\n- {repo: azoth, group: Building reagents, kind: chart}\n")},
+	}
+	run := func(context.Context, string, ...string) error { return nil }
+	if err := runPreview(context.Background(), previewOptions{RepoDir: repo, Out: out, Kind: "tool", Run: run, RootDocs: rootDocs}, os.Stderr); err != nil {
+		t.Fatal(err)
+	}
+	for _, p := range []string{
+		"stubs/azoth/modules/ROOT/pages/explanations/backup.adoc",
+		"stubs/azoth/modules/ROOT/pages/how-tos/develop.adoc",
+		"root/modules/ROOT/pages/guidelines.adoc",
+		// linked from the framework pages, not from the previewed repo
+		"stubs/azoth/modules/ROOT/pages/references/templates.adoc",
+	} {
+		if _, err := os.Stat(filepath.Join(out, p)); err != nil {
+			t.Errorf("no stub for xref target: %s", p)
+		}
+	}
+	// Real pages stay real, and the component's own xrefs are not stubbed.
+	if c := copyFile(t, filepath.Join(out, "root/modules/ROOT/pages/concepts.adoc")); c != "= Concepts\n" {
+		t.Errorf("real ROOT page overwritten: %q", c)
+	}
+	if _, err := os.Stat(filepath.Join(out, "stubs/cupel")); err == nil {
+		t.Error("previewed component stubbed")
 	}
 }

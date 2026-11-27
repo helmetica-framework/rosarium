@@ -9,6 +9,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
+	"strings"
 
 	"github.com/spf13/cobra"
 	"sigs.k8s.io/yaml"
@@ -22,6 +24,9 @@ const (
 	antoraImage = "ghcr.io/vshn/antora:3.1.14.1"
 	// renovate: datasource=npm depName=antora
 	antoraNPMVersion = "3.1.14"
+	// Not renovated: asciidoctor-kroki 1.0+ needs Asciidoctor.js 3, Antora 3.1
+	// ships 2. The vshn/antora image bundles a matching version.
+	krokiNPMVersion = "0.18.2"
 )
 
 type runner func(ctx context.Context, dir string, args ...string) error
@@ -144,6 +149,21 @@ func runPreview(ctx context.Context, o previewOptions, log io.Writer) error {
 			startPaths = append(startPaths, "stubs/"+c.Repo)
 		}
 	}
+	// Stub every page the docs link to in another component, so the check
+	// fails on the component's own links only. The full site build checks the
+	// cross-component ones against the real pages.
+	stubbed := map[string]string{"ROOT": filepath.Join(o.Out, "root")}
+	for _, p := range startPaths {
+		if c, ok := strings.CutPrefix(p, "stubs/"); ok {
+			stubbed[c] = filepath.Join(o.Out, p)
+		}
+	}
+	// The framework pages link into the components too.
+	for _, docs := range []string{filepath.Join(o.RepoDir, "docs"), filepath.Join(o.Out, "root")} {
+		if err := stubXrefTargets(docs, stubbed); err != nil {
+			return err
+		}
+	}
 	root := site.Source{Name: "ROOT", Title: "Preview", Group: config.GroupFramework}
 	if err := site.WriteSidebar(filepath.Join(o.Out, "ui", "partials", "nav-explore.hbs"), []site.Source{root, s}); err != nil {
 		return err
@@ -195,7 +215,7 @@ func detectEngine() string {
 // paths, so the playbook's absolute paths stay valid), else via npx.
 func antoraCommand(engine, out, repo string, antoraArgs ...string) (string, []string) {
 	if engine == "none" {
-		return "npx", append([]string{"--yes", "-p", "antora@" + antoraNPMVersion, "-p", "asciidoctor-kroki", "antora"}, antoraArgs...)
+		return "npx", append([]string{"--yes", "-p", "antora@" + antoraNPMVersion, "-p", "asciidoctor-kroki@" + krokiNPMVersion, "antora"}, antoraArgs...)
 	}
 	args := []string{"run", "--rm", "--volume", out + ":" + out, "--volume", repo + ":" + repo, "--workdir", out}
 	if engine == "podman" {
@@ -213,4 +233,43 @@ func antoraRunner(repo string) runner {
 		c.Dir, c.Stdout, c.Stderr = dir, os.Stderr, os.Stderr
 		return c.Run()
 	}
+}
+
+// crossXref matches xref:<component>::<page> and xref:<component>:ROOT:<page>.
+var crossXref = regexp.MustCompile(`xref:([A-Za-z0-9_-]+):(?:ROOT)?:([^\[#\s]+\.adoc)`)
+
+// stubXrefTargets writes a stub page for every xref target in docsDir that
+// points into one of the components in dirs (name -> component dir) and does
+// not exist there yet.
+func stubXrefTargets(docsDir string, dirs map[string]string) error {
+	return filepath.WalkDir(docsDir, func(p string, d fs.DirEntry, err error) error {
+		if err != nil || d.IsDir() || filepath.Ext(p) != ".adoc" {
+			return err
+		}
+		raw, err := os.ReadFile(p)
+		if err != nil {
+			return err
+		}
+		for _, m := range crossXref.FindAllStringSubmatch(string(raw), -1) {
+			dir, ok := dirs[m[1]]
+			if !ok {
+				continue
+			}
+			target := filepath.Join(dir, "modules", "ROOT", "pages", filepath.FromSlash(m[2]))
+			if !strings.HasPrefix(target, dir+string(filepath.Separator)) {
+				continue // ../ in the page path
+			}
+			if _, err := os.Stat(target); err == nil {
+				continue
+			}
+			if err := os.MkdirAll(filepath.Dir(target), 0o755); err != nil {
+				return err
+			}
+			stub := fmt.Sprintf("= %s\n\nPreview stub: the real page is on https://docs.helmetica.io.\n", m[2])
+			if err := os.WriteFile(target, []byte(stub), 0o644); err != nil {
+				return err
+			}
+		}
+		return nil
+	})
 }

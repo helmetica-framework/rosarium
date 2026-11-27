@@ -12,7 +12,9 @@ engine_opts := if engine == "podman" { "--rm --userns=keep-id" } else { "--rm --
 antora_image := "ghcr.io/vshn/antora:" + antora_version
 # renovate: datasource=npm depName=antora
 antora_npm_version := "3.1.14"
-antora_cmd := if engine == "none" { "npx --yes -p antora@" + antora_npm_version + " -p asciidoctor-kroki antora" } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora " + antora_image }
+# Not renovated: asciidoctor-kroki 1.0+ needs Asciidoctor.js 3, Antora 3.1 ships 2.
+kroki_npm_version := "0.18.2"
+antora_cmd := if engine == "none" { "npx --yes -p antora@" + antora_npm_version + " -p asciidoctor-kroki@" + kroki_npm_version + " antora" } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora " + antora_image }
 pagefind_cmd := if engine == "none" { "npx --yes pagefind@" + pagefind_version } else { engine + " run " + engine_opts + " --volume \"$PWD\":/antora --workdir /antora --env npm_config_cache=/antora/.cache/npm --entrypoint npx " + antora_image + " --yes pagefind@" + pagefind_version }
 
 _default:
