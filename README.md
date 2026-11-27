@@ -38,7 +38,7 @@ Antora runs in the `ghcr.io/vshn/antora` image when docker or podman is availabl
 From any component repo:
 
 ```bash
-go run github.com/helmetica-framework/rosarium@main preview . --serve :2020
+GOPROXY=direct go run github.com/helmetica-framework/rosarium@main preview . --serve :2020
 ```
 
 This builds that repo's docs with its generated reference pages and fails on any Antora warning, which is why the component repos also run it in CI.
