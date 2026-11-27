@@ -1,3 +1,152 @@
 = Getting started
 
-TODO: order a first instance end to end: pick a reagent from the xref:reagents.adoc[catalogue], apply a claim, read its credentials.
+This page walks you through ordering a service instance, connecting to it, changing it and removing it again.
+It uses Redis as the example; every other service works the same way.
+You need `kubectl` access to a namespace on a cluster that runs the Helmetica framework.
+
+== Pick a service
+
+The xref:reagents.adoc[reagent catalogue] lists the services you can order.
+Each one has its own documentation with the values you can set, under *Parameters*.
+
+The services installed on your cluster show up as resource types in the `helmetica-bundles.io` API groups:
+
+[source,bash]
+----
+kubectl api-resources | grep helmetica-bundles.io
+----
+
+The API group names the major version of the service, for example `v0.redis.helmetica-bundles.io`.
+A new major version gets a new group, so an existing instance never changes its API underneath you.
+
+To see every field and its description, use `kubectl explain`:
+
+[source,bash]
+----
+kubectl explain redis.spec.values --recursive
+----
+
+== Order an instance
+
+You order an instance by creating a xref:concepts.adoc#claim[claim] in your namespace:
+
+[source,yaml]
+----
+apiVersion: v0.redis.helmetica-bundles.io/bundle
+kind: Redis
+metadata:
+  name: cache
+  namespace: my-app
+spec:
+  approval:
+    strategy: Automatic <1>
+  values: {} <2>
+----
+<1> `Automatic` rolls out every change right away. With `Manual`, changes wait for an approval, see <<approve>>.
+<2> The service's settings. Empty takes the defaults of the service.
+
+Without `spec.version`, the instance starts on the newest version of the service and follows its updates.
+Set `spec.version` to pin a version.
+
+Watch the instance until it is ready:
+
+[source,bash]
+----
+kubectl -n my-app get redis cache -w
+----
+
+The service runs in an xref:concepts.adoc#instance-namespace[instance namespace] of its own, which the framework creates and removes with the claim.
+You don't need to go there, but its name is in the claim's status:
+
+[source,bash]
+----
+kubectl -n my-app get redis cache -o jsonpath='{.status.instanceNamespace}{"\n"}'
+----
+
+== Connect your application
+
+The connection details are written to a secret beside your claim, in your namespace.
+Its name starts with the claim name, or with `credentials.prefix` if you set one, followed by a short hash:
+
+[source,bash]
+----
+kubectl -n my-app get secrets | grep '^cache-'
+----
+
+Mount it into your application, for example as environment variables:
+
+[source,yaml]
+----
+envFrom:
+  - secretRef:
+      name: cache-1a2b3c4d
+----
+
+The service accepts connections from your namespace only.
+Which keys the secret holds is described in each service's documentation.
+ifdef::rosarium-has-reagent-redis[For Redis, see xref:reagent-redis::references/credentials.adoc[Credentials].]
+
+== Change the instance
+
+Edit `spec.values` or `spec.version` on the claim.
+Every change creates a new xref:concepts.adoc#claimrevision[`ClaimRevision`] next to the claim, so you can always see what the instance was configured with before.
+
+[source,bash]
+----
+kubectl -n my-app get claimrevisions
+----
+
+[#approve]
+=== Approve a change
+
+With `strategy: Manual`, a new revision waits until someone approves it.
+xref:cupel::index.adoc[Cupel] shows what a revision changes and approves it:
+
+[source,bash]
+----
+cupel ledger -n my-app redis/cache
+----
+
+Press `a` on a revision to approve it, see xref:cupel::how-tos/ledger.adoc[Browse revisions of a claim].
+The newest approved revision is the one that is deployed.
+
+== Run an operation
+
+Services offer operations such as a restart as xref:concepts.adoc#ritual[rituals].
+You run one by creating an xref:concepts.adoc#action[`Action`] in your namespace that names your claim and the ritual:
+
+[source,yaml]
+----
+apiVersion: adept.helmetica.io/v1
+kind: Action
+metadata:
+  name: restart-cache
+  namespace: my-app
+spec:
+  apiVersion: v0.redis.helmetica-bundles.io/bundle
+  kind: Redis
+  claim: cache
+  type: restart
+----
+
+Its status shows whether it succeeded:
+
+[source,bash]
+----
+kubectl -n my-app get action restart-cache
+----
+
+An `Action` runs once.
+To run the ritual again, create a new one.
+Which rituals a service offers is described in its documentation.
+
+== Remove the instance
+
+Delete the claim:
+
+[source,bash]
+----
+kubectl -n my-app delete redis cache
+----
+
+The instance namespace and everything in it go away with it.
