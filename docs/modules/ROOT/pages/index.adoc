@@ -19,6 +19,7 @@ Browse the reagents, then order and configure an instance.
 .I build a service
 Turn an upstream chart into a reagent.
 
+ifdef::rosarium-has-transmuter[* xref:transmuter::tutorials/first-reagent.adoc[Your first reagent]]
 ifdef::rosarium-has-transmuter[* xref:transmuter::index.adoc[Transmuter]]
 ifdef::rosarium-has-ferment[* xref:ferment::index.adoc[Ferment]]
 ifdef::rosarium-has-azoth[* xref:azoth::index.adoc[Azoth]]
@@ -31,6 +32,7 @@ ifdef::rosarium-has-azoth[* xref:azoth::index.adoc[Azoth]]
 Install it, understand the architecture, dive into the operators.
 
 * xref:architecture.adoc[Architecture]
+* xref:guidelines.adoc[Guidelines]
 ifdef::rosarium-has-alembic[* xref:alembic::index.adoc[Alembic]]
 ifdef::rosarium-has-athanor[* xref:athanor::index.adoc[Athanor]]
 ====
