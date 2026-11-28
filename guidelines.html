@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guidelines :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="Guidelines">
+    <meta name="twitter:title" content="Guidelines">
+    <link rel="canonical" href="https://docs.helmetica.io/guidelines.html">
+    <meta property="og:url" content="https://docs.helmetica.io/guidelines.html">
+    <link rel="prev" href="architecture.html">
+    <link rel="next" href="reagents.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="./_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="./_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = './_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ROOT" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Helmetica Framework</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting-started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="guidelines.html">Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reagents.html">Reagent catalogue</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Helmetica Framework</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component is-current"><a class="title" href="index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="ampulla/index.html">Ampulla</a></li>
+        <li class="component"><a class="title" href="chrysopoeia/index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Helmetica Framework</a></li>
+    <li><a href="guidelines.html">Guidelines</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">Guidelines</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the conventions for the Helmetica controllers and charts.
+They apply to every operator listed under <a href="architecture.html#operators" class="xref page">Architecture</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_naming"><a class="anchor" href="#_naming"></a>Naming</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Operators are named after an alchemical term related to their function.
+<code>sigillum</code> seals, <code>custos</code> guards, <code>ampulla</code> stores, <code>adept</code> performs, <code>chrysopoeia</code> makes gold out of charts.</p>
+</div>
+<div class="paragraph">
+<p>The Go module is <code>github.com/helmetica-framework/&lt;name&gt;</code>.
+The container image is <code>ghcr.io/helmetica-framework/&lt;name&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>CRDs have plain and expressive Kind names, for example <code>NetworkConfig</code>, <code>CredentialConfig</code>, <code>BackupPolicy</code>, <code>Action</code>.</p>
+</div>
+<div class="paragraph">
+<p>The group name has the following pattern:</p>
+</div>
+<div class="paragraph">
+<p><code>&lt;operatorName&gt;.helmetica.io</code></p>
+</div>
+<div class="paragraph">
+<p>One operator may own several kinds in its group.</p>
+</div>
+<div class="paragraph">
+<p>Inside the repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A reconciler file is <code>&lt;kind&gt;_controller.go</code>, its test sits next to it.</p>
+</li>
+<li>
+<p>The reconciler type is <code>&lt;Kind&gt;Manager</code>, for example <code>SealManager</code>.</p>
+</li>
+<li>
+<p>Helper logic for one reconciler goes in its own small file, for example <code>claim.go</code>, <code>gather.go</code>, <code>target.go</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controller_tooling"><a class="anchor" href="#_controller_tooling"></a>Controller tooling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The binary is a cobra command.</p>
+</div>
+<div class="paragraph">
+<p><code>config/default</code> deploys RBAC and the manager but not the CRDs.
+CRDs are installed separately from <code>config/crd</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status"><a class="anchor" href="#_status"></a>Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default a status contains a phase, the generation it was computed from, and a message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">type SealStatus struct {
+	// +optional
+	Phase SealPhase `json:"phase,omitempty"`
+	// ObservedGeneration is the spec generation the phase was computed from.
+	// +optional
+	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
+	// Message explains a Failed phase.
+	// +optional
+	Message string `json:"message,omitempty"`
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The phase values are <code>Pending</code>, <code>Ready</code> and <code>Failed</code> for anything that settles.
+A one-shot resource uses <code>Pending</code>, <code>Running</code>, <code>Succeeded</code> and <code>Failed</code> instead, and its terminal phases are final.</p>
+</div>
+<div class="paragraph">
+<p>Conditions can be used if necessary.</p>
+</div>
+<div class="paragraph">
+<p>Add print columns for at least the phase and the message, so <code>kubectl get</code> contains important information.</p>
+</div>
+<div class="paragraph">
+<p>An empty spec must be a complete spec.
+Defaults come from the controller, and each field only overrides one of them.</p>
+</div>
+<div class="paragraph">
+<p>Where pausing makes sense, add <code>spec.suspend</code>.
+A suspended object holds at <code>Pending</code> and the controller leaves everything it owns alone.
+This is useful if controllers misbehave on a cluster.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_server_side_apply"><a class="anchor" href="#_use_server_side_apply"></a>Use server-side-apply</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All write operations should be done via server-side-apply.
+Especially if a given resource can be reconciled by multiple controllers.</p>
+</div>
+<div class="paragraph">
+<p>Use the generated typed apply configurations, not unstructured patches:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">status := sealsacv1.Seal(seal.GetName(), seal.GetNamespace()).
+	WithStatus(sealsacv1.SealStatus().
+		WithPhase(want.Phase).
+		WithObservedGeneration(seal.Generation).
+		WithMessage(want.Message))
+
+if err := r.Status().Apply(ctx, status, fieldOwner, client.ForceOwnership); err != nil {
+	return ctrl.Result{}, fmt.Errorf("applying seal status: %w", err)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Declare one field owner constant per controller, named <code>&lt;project&gt;:&lt;controller&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">const fieldOwner = client.FieldOwner("ampulla:backuppolicy")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pass <code>client.ForceOwnership</code> on every apply.</p>
+</div>
+<div class="paragraph">
+<p>Set an owner reference on everything you create, so a deleted parent or namespace takes the lot with it through ordinary garbage collection.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reconcile_shape"><a class="anchor" href="#_reconcile_shape"></a>Reconcile shape</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A reconcile reads, decides, and only then writes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Get</code> the object. A <code>NotFound</code> is not an error, it means there is nothing to do.</p>
+</li>
+<li>
+<p>A non-zero <code>DeletionTimestamp</code> means there is nothing to do, unless the controller owns a finalizer.</p>
+</li>
+<li>
+<p>Compute the desired state in its own function, for example <code>desiredPhase</code>.</p>
+</li>
+<li>
+<p>Return early when phase, observed generation and message already match.</p>
+</li>
+<li>
+<p>Apply.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Wrap errors with a lowercase gerund and <code>%w</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">return fmt.Errorf("applying seal status: %w", err)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Put the <code>+kubebuilder:rbac</code> markers directly above the reconciler that needs them.
+The role is generated from them, so a permission that is not asked for there does not exist.</p>
+</div>
+<div class="paragraph">
+<p>A controller must not hold permissions it only needs on behalf of an instance.
+Borrow the instance service account through a Job instead, the way custos does for <code>objectRef</code> and <code>exec</code> sources.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing"><a class="anchor" href="#_testing"></a>Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tests use <code>testify</code> with <code>require</code> for setup and <code>assert</code> for checks.</p>
+</div>
+<div class="paragraph">
+<p>Controller tests run against the controller-runtime fake client.
+Where more advanced features are required, such as testing <code>watch</code> or reconcile behavior envtest may be used.
+Be aware of the envtest overhead when implementing such tests.
+Register the status subresource and the generated type converter, otherwise every apply is rejected:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">fake.NewClientBuilder().
+	WithScheme(scheme).
+	WithStatusSubresource(&amp;sealsv1.Seal{}).
+	WithTypeConverters(
+		sealsac.NewTypeConverter(scheme),
+		managedfields.NewDeducedTypeConverter(),
+	)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Name a test after the subject and the behaviour, separated by an underscore:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-go hljs" data-lang="go">func TestReconcile_ActionGoneIsNoError(t *testing.T)
+func TestVersion_SuspendedDoesNotBumpOnSchedule(t *testing.T)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tests run with <code>-race</code>.
+Generated code is stripped from the coverage profile:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-make hljs" data-lang="make">go test ./... -race -coverprofile cover.tmp.out
+grep -v -e "zz_generated.deepcopy.go" -e "/applyconfiguration/" cover.tmp.out &gt; cover.out</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>End-to-end tests are chainsaw <a href="concepts.html#touchstone" class="xref page">touchstones</a> in <code>test/touchstone/</code>, run against a local <a href="athanor/index.html" class="xref page">athanor</a> cluster.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build"><a class="anchor" href="#_build"></a>Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Projects are driven by <code>just</code>.
+The recipe names are the same everywhere: <code>build</code>, <code>binary</code>, <code>test</code>, <code>manifests</code>, <code>generate</code>, <code>fmt</code>, <code>vet</code>, <code>lint</code>, <code>docs</code>, <code>build-docker</code>, <code>run</code>, <code>clean</code>.</p>
+</div>
+<div class="paragraph">
+<p>Variables live in <code>Justfile.vars.just</code>, one import at the top of the <code>Justfile</code>.</p>
+</div>
+<div class="paragraph">
+<p>Tools are pinned, never taken off <code>PATH</code>.
+Go tools come from the <code>tool</code> directives in <code>go.mod</code>, everything else gets a pinned version with a renovate comment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-just hljs" data-lang="just">CONTROLLER_GEN := "go tool sigs.k8s.io/controller-tools/cmd/controller-gen"
+
+# renovate: datasource=go depName=github.com/kyverno/chainsaw
+CHAINSAW_VERSION := "v0.2.15"
+CHAINSAW_CMD := "go run github.com/kyverno/chainsaw@" + CHAINSAW_VERSION</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>just lint</code> regenerates everything and then fails on a dirty tree:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-just hljs" data-lang="just">lint: fmt vet generate manifests docs
+    {{ KUSTOMIZE }} build config/crd -o /dev/null
+    {{ KUSTOMIZE }} build config/default -o /dev/null
+    git diff --exit-code</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The binary is built with <code>CGO_ENABLED=0</code> so the image stays static.
+Tests keep cgo, because <code>-race</code> needs it.</p>
+</div>
+<div class="paragraph">
+<p>The image is distroless nonroot, pinned by digest, and copies in the prebuilt binary:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dockerfile hljs" data-lang="dockerfile">FROM gcr.io/distroless/static:nonroot@sha256:...
+
+ENTRYPOINT ["/usr/bin/sigillum"]
+COPY sigillum /usr/bin/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every repository has a <code>renovate.json</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ci"><a class="anchor" href="#_ci"></a>CI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Five workflows, same names everywhere: <code>build</code>, <code>lint</code>, <code>test</code>, <code>govulncheck</code>, <code>release</code>.</p>
+</div>
+<div class="paragraph">
+<p>Workflows start with <code>permissions: {}</code> and grant only what a job needs.</p>
+</div>
+<div class="paragraph">
+<p>All actions are pinned by commit SHA with the version in a trailing comment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Go version comes from <code>go.mod</code>, never from a literal in the workflow.</p>
+</div>
+<div class="paragraph">
+<p>Releases are tag triggered and run goreleaser with cosign keyless signing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentation"><a class="anchor" href="#_documentation"></a>Documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The README opens with what the name means, then what the thing does, and links to the docs.</p>
+</div>
+<div class="paragraph">
+<p>Everything else goes into <code>docs/</code>, an Antora component published on docs.helmetica.io.
+<code>just docs</code> builds it exactly as the site does and fails on warnings, so <code>just lint</code> covers it.
+New vocabulary goes into the <a href="concepts.html" class="xref page">Concepts</a> table, not into a per-project glossary.</p>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="architecture.html">Architecture</a></span>
+  <span class="next"><a href="reagents.html">Reagent catalogue</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="./_/js/site-ea6a1a32.js"></script>
+<script async src="./_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

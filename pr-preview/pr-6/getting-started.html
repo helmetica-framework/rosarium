@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Getting started :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="Getting started">
+    <meta name="twitter:title" content="Getting started">
+    <link rel="canonical" href="https://docs.helmetica.io/pr-preview/pr-6/getting-started.html">
+    <meta property="og:url" content="https://docs.helmetica.io/pr-preview/pr-6/getting-started.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="concepts.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="./_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="./_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = './_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io/pr-preview/pr-6">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ROOT" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Helmetica Framework</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="getting-started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="guidelines.html">Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reagents.html">Reagent catalogue</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Helmetica Framework</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component is-current"><a class="title" href="index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="ampulla/index.html">Ampulla</a></li>
+        <li class="component"><a class="title" href="chrysopoeia/index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Helmetica Framework</a></li>
+    <li><a href="getting-started.html">Getting started</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">Getting started</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page walks you through ordering a service instance, connecting to it, changing it and removing it again.
+It uses Redis as the example; every other service works the same way.
+You need <code>kubectl</code> access to a namespace on a cluster that runs the Helmetica framework.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pick_a_service"><a class="anchor" href="#_pick_a_service"></a>Pick a service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="reagents.html" class="xref page">reagent catalogue</a> lists the services you can order.
+Each one has its own documentation with the values you can set, under <strong>Parameters</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The services installed on your cluster show up as resource types in the <code>helmetica-bundles.io</code> API groups:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl api-resources | grep helmetica-bundles.io</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The API group names the major version of the service, for example <code>v0.redis.helmetica-bundles.io</code>.
+A new major version gets a new group, so an existing instance never changes its API underneath you.</p>
+</div>
+<div class="paragraph">
+<p>To see every field and its description, use <code>kubectl explain</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl explain redis.spec.values --recursive</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_order_an_instance"><a class="anchor" href="#_order_an_instance"></a>Order an instance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You order an instance by creating a <a href="concepts.html#claim" class="xref page">claim</a> in your namespace:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v0.redis.helmetica-bundles.io/bundle
+kind: Redis
+metadata:
+  name: cache
+  namespace: my-app
+spec:
+  approval:
+    strategy: Automatic <i class="conum" data-value="1"></i><b>(1)</b>
+  values: {} <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>Automatic</code> rolls out every change right away. With <code>Manual</code>, changes wait for an approval, see <a href="#approve">Approve a change</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The service&#8217;s settings. Empty takes the defaults of the service.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Without <code>spec.version</code>, the instance starts on the newest version of the service and follows its updates.
+Set <code>spec.version</code> to pin a version.</p>
+</div>
+<div class="paragraph">
+<p>Watch the instance until it is ready:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app get redis cache -w</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The service runs in an <a href="concepts.html#instance-namespace" class="xref page">instance namespace</a> of its own, which the framework creates and removes with the claim.
+You don&#8217;t need to go there, but its name is in the claim&#8217;s status:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app get redis cache -o jsonpath='{.status.instanceNamespace}{"\n"}'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connect_your_application"><a class="anchor" href="#_connect_your_application"></a>Connect your application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The connection details are written to a secret beside your claim, in your namespace.
+Its name starts with the claim name, or with <code>credentials.prefix</code> if you set one, followed by a short hash:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app get secrets | grep '^cache-'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mount it into your application, for example as environment variables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">envFrom:
+  - secretRef:
+      name: cache-1a2b3c4d</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The service accepts connections from your namespace only.
+Which keys the secret holds is described in each service&#8217;s documentation.
+For Redis, see <a href="reagent-redis/references/credentials.html" class="xref page">Credentials</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_the_instance"><a class="anchor" href="#_change_the_instance"></a>Change the instance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Edit <code>spec.values</code> or <code>spec.version</code> on the claim.
+Every change creates a new <a href="concepts.html#claimrevision" class="xref page"><code>ClaimRevision</code></a> next to the claim, so you can always see what the instance was configured with before.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app get claimrevisions</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="approve"><a class="anchor" href="#approve"></a>Approve a change</h3>
+<div class="paragraph">
+<p>With <code>strategy: Manual</code>, a new revision waits until someone approves it.
+<a href="cupel/index.html" class="xref page">Cupel</a> shows what a revision changes and approves it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cupel ledger -n my-app redis/cache</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Press <code>a</code> on a revision to approve it, see <a href="cupel/how-tos/ledger.html" class="xref page">Browse revisions of a claim</a>.
+The newest approved revision is the one that is deployed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_an_operation"><a class="anchor" href="#_run_an_operation"></a>Run an operation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Services offer operations such as a restart as <a href="concepts.html#ritual" class="xref page">rituals</a>.
+You run one by creating an <a href="concepts.html#action" class="xref page"><code>Action</code></a> in your namespace that names your claim and the ritual:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: adept.helmetica.io/v1
+kind: Action
+metadata:
+  name: restart-cache
+  namespace: my-app
+spec:
+  apiVersion: v0.redis.helmetica-bundles.io/bundle
+  kind: Redis
+  claim: cache
+  type: restart</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Its status shows whether it succeeded:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app get action restart-cache</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An <code>Action</code> runs once.
+To run the ritual again, create a new one.
+Which rituals a service offers is described in its documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remove_the_instance"><a class="anchor" href="#_remove_the_instance"></a>Remove the instance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Delete the claim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n my-app delete redis cache</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The instance namespace and everything in it go away with it.</p>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="index.html">Home</a></span>
+  <span class="next"><a href="concepts.html">Concepts</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="./_/js/site-ea6a1a32.js"></script>
+<script async src="./_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

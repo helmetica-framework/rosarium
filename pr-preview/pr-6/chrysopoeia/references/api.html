@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API reference :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="API reference">
+    <meta name="twitter:title" content="API reference">
+    <link rel="canonical" href="https://docs.helmetica.io/pr-preview/pr-6/chrysopoeia/references/api.html">
+    <meta property="og:url" content="https://docs.helmetica.io/pr-preview/pr-6/chrysopoeia/references/api.html">
+    <link rel="prev" href="libraries.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="../../_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = '../../_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io/pr-preview/pr-6">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="chrysopoeia" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Chrysopoeia</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../explanations/architecture.html">explanations/architecture.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">How-tos</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/install.html">how-tos/install.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/platform-values.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/develop.html">Develop</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">references/configuration.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="values-hints.html">values.yaml hints</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="libraries.html">Go libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Generated reference</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="api.html">API reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Chrysopoeia</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="../../reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="../../reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="../../cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="../../ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="../../transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="../../aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="../../ampulla/index.html">Ampulla</a></li>
+        <li class="component is-current"><a class="title" href="../index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="../../custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="../../libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="../../sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="../../athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="../../index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Chrysopoeia</a></li>
+    <li>Generated reference</li>
+    <li><a href="api.html">API reference</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">API reference</h1>
+<div class="sect1">
+<h2 id="_claimdefinition"><a class="anchor" href="#_claimdefinition"></a>ClaimDefinition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>chrysopoeia.helmetica.io/v1</code>, namespaced</p>
+</div>
+<div class="paragraph">
+<p>ClaimDefinition is the Schema for the bundlesources API.</p>
+</div>
+<div class="sect2">
+<h3 id="_spec"><a class="anchor" href="#_spec"></a>Spec</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CRDNames is the <code>.spec.names</code> field of the generated [apiextv1.CustomResourceDefinition]. If not set takes the name from the chart&#8217;s metadata or falls back to the default <code>Instance</code> kind. Please note that changing this field generates a new CRD and does not update the existing one. The old CRD will be left in the cluster and must be removed manually.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.categories</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like <code>kubectl get all</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.kind</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kind is the serialized kind of the resource. It is normally CamelCase and singular. Custom resource instances will use this value as the <code>kind</code> attribute in API calls.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.listKind</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.plural</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plural is the plural name of the resource to serve. The custom resources are served under <code>/apis/&lt;group&gt;/&lt;version&gt;/&#8230;&#8203;/&lt;plural&gt;</code>. Must match the name of the CustomResourceDefinition (in the form <code>&lt;names.plural&gt;.&lt;group&gt;</code>). Must be all lowercase.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.shortNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like <code>kubectl get &lt;shortname&gt;</code>. It must be all lowercase.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crdNames.singular</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased <code>kind</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InstancePermissions defines what permissions are required to deploy the Helm chart. The default permissions is equal to binding the "admin" aggregate role in the namespace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AdditionalClusterRules holds additional cluster scoped rules that should be granted on top of the default permissions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules[].apiGroups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules[].nonResourceURLs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules[].resourceNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules[].resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resources is a list of resources this rule applies to. '*' represents all resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalClusterRules[].verbs</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AdditionalRules holds additional rules that should be granted on top of the default permissions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules[].apiGroups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules[].nonResourceURLs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules[].resourceNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules[].resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resources is a list of resources this rule applies to. '*' represents all resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.instancePermissions.additionalRules[].verbs</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.manages</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manages declares that this source deploys the operator managing the CRDs of a DependencyGroup. The instance of a managing source is the provider consumers are wired to: it is harnessed to the group&#8217;s scope and granted access to the namespaces that require the group. A single group can be managed: the harness proxy scopes a cluster-scoped list to one label, and a label selector cannot express "carries either label".<br>
+<em>Validation:</em> max items 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.manages[].dependencyGroup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DependencyGroup references a DependencyGroup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.manages[].dependencyGroup.as</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As overrides the name the scope label is built from, so that a second deployment of the same operator can serve a separate set of consumers. Both the managing operator and its consumers have to set the same alias to end up in the same scope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.manages[].dependencyGroup.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the DependencyGroup.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.provides</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides lists the DependencyGroups whose CRDs the chart of this source ships. It grants the chart write access to those CRDs and lets Helm install them; it says nothing about who operates them, that is Manages. Exactly one source may provide a group, otherwise two charts install the same CRDs over each other. An operator that bundles its CRDs provides and manages the group, while an operator whose CRDs come in a chart of their own only manages it.<br>
+<em>Validation:</em> as must not be set on provides, the CRDs of a group are the same for every consumer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.provides[].dependencyGroup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DependencyGroup references a DependencyGroup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.provides[].dependencyGroup.as</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As overrides the name the scope label is built from, so that a second deployment of the same operator can serve a separate set of consumers. Both the managing operator and its consumers have to set the same alias to end up in the same scope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.provides[].dependencyGroup.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the DependencyGroup.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.reference</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference is a reference to the source of the bundle.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.reference.apiVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: source.toolkit.fluxcd.io/v1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion of the referent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.reference.kind</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: OCIRepository</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind of the referent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.reference.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the referent.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.requires</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires lists the DependencyGroups that instances of this source consume.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.requires[].dependencyGroup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DependencyGroup references a DependencyGroup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.requires[].dependencyGroup.as</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As overrides the name the scope label is built from, so that a second deployment of the same operator can serve a separate set of consumers. Both the managing operator and its consumers have to set the same alias to end up in the same scope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.requires[].dependencyGroup.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the DependencyGroup.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.versionDiscovery</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VersionDiscovery defines how to discover the version of the source.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.versionDiscovery.reference</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference is a reference to the discovery source of the version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.versionDiscovery.reference.apiVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: image.toolkit.fluxcd.io/v1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion of the referent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.versionDiscovery.reference.kind</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: ImageRepository</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind of the referent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.versionDiscovery.reference.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the referent.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_status"><a class="anchor" href="#_status"></a>Status</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.appliedReferenceGeneration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AppliedReferenceGeneration is the last applied generation of the referenced source.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.appliedReferenceRevision</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AppliedReferenceRevision is the last applied revision of the referenced source.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditions holds the conditions for the ClaimDefinition.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].lastTransitionTime</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].message</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message is a human readable message indicating details about the transition. This may be an empty string.<br>
+<em>Validation:</em> max length 32768</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].observedGeneration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.<br>
+<em>Validation:</em> minimum 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].reason</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reason contains a programmatic identifier indicating the reason for the condition&#8217;s last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.<br>
+<em>Validation:</em> min length 1; max length 1024; pattern <code>^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].status</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: True, False, Unknown</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status of the condition, one of True, False, Unknown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].type</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type of condition in CamelCase or in foo.example.com/CamelCase.<br>
+<em>Validation:</em> max length 316; pattern <code>^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_claimrevision"><a class="anchor" href="#_claimrevision"></a>ClaimRevision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>chrysopoeia.helmetica.io/v1</code>, namespaced</p>
+</div>
+<div class="paragraph">
+<p>ClaimRevision is the Schema for the bundlesources API.</p>
+</div>
+<div class="sect2">
+<h3 id="_spec_2"><a class="anchor" href="#_spec_2"></a>Spec</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.approvedAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApprovedAt is the timestamp when the revision was approved. The newest approved revision is the one that will be used for deployment. The revision</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.ociUrl</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCIUrl is the OCI repository URL where the service bundle is stored.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.values</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object (free-form)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Values is the values of the Helm chart.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.version</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version is the version of the Helm chart.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dependencygroup"><a class="anchor" href="#_dependencygroup"></a>DependencyGroup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>chrysopoeia.helmetica.io/v1</code>, cluster</p>
+</div>
+<div class="paragraph">
+<p>DependencyGroup is the Schema for the dependencygroups API.
+It bundles the CustomResourceDefinitions of a service so that charts can depend on the group
+instead of on individual CRDs, and ties them to the harness of the managing operator.</p>
+</div>
+<div class="sect2">
+<h3 id="_spec_3"><a class="anchor" href="#_spec_3"></a>Spec</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClusterRules grants any service account in the 'manages' namespace the given permissions on the cluster level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules[].apiGroups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules[].nonResourceURLs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules[].resourceNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules[].resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resources is a list of resources this rule applies to. '*' represents all resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.clusterRules[].verbs</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crds</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CRDs are the CustomResourceDefinitions that belong to this group. A CRD must not belong to more than one group, groups claiming an already claimed CRD are rejected. The CRDs do not have to exist yet.<br>
+<em>Validation:</em> min items 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.crds[].name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name is the fully qualified name of the CRD, as written in its <code>.metadata.name</code>.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.harnessRef</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HarnessRef references the harness of the operator managing the CRDs of this group.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.harnessRef.kind</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: OperatorHarness</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind of the referent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.harnessRef.name</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the referent.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LocalRules grants the service accounts in the 'manages' namespace namespace local permissions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules[].apiGroups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules[].nonResourceURLs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules[].resourceNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules[].resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resources is a list of resources this rule applies to. '*' represents all resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.localRules[].verbs</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rules grants any service account in the 'manages' namespace the given permissions in the 'requires' namespaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules[].apiGroups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules[].nonResourceURLs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules[].resourceNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules[].resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resources is a list of resources this rule applies to. '*' represents all resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.rules[].verbs</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_status_2"><a class="anchor" href="#_status_2"></a>Status</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditions holds the conditions for the DependencyGroup. The Accepted condition carries the reason a group was rejected.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].lastTransitionTime</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].message</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message is a human readable message indicating details about the transition. This may be an empty string.<br>
+<em>Validation:</em> max length 32768</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].observedGeneration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.<br>
+<em>Validation:</em> minimum 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].reason</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reason contains a programmatic identifier indicating the reason for the condition&#8217;s last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.<br>
+<em>Validation:</em> min length 1; max length 1024; pattern <code>^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].status</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: True, False, Unknown</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status of the condition, one of True, False, Unknown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].type</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type of condition in CamelCase or in foo.example.com/CamelCase.<br>
+<em>Validation:</em> max length 316; pattern <code>^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.state</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: Accepted, Rejected</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State is Accepted if the group holds the claim on all of its CRDs, and Rejected otherwise. Only accepted groups may be referenced by a ClaimDefinition.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operatorharness"><a class="anchor" href="#_operatorharness"></a>OperatorHarness</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>chrysopoeia.helmetica.io/v1</code>, cluster</p>
+</div>
+<div class="paragraph">
+<p>OperatorHarness is the Schema for the operatorharnesses API.
+It harnesses an operator that would otherwise require cluster-wide permissions by scoping its
+access to resources carrying the label in <code>.spec.scopeToLabel</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_spec_4"><a class="anchor" href="#_spec_4"></a>Spec</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.operator</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operator describes the harnessed operator&#8217;s workload.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.operator.injectProxyConfiguration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InjectProxyConfiguration defines if the harnessed operator should have the harness proxy injected. If enabled, the harness copies the proxy&#8217;s CA certificate to Namespace and registers a mutating webhook that points the operator&#8217;s pods at the harness proxy instead of the Kubernetes API server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.operator.namespace</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace is the namespace the harnessed operator runs in.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.operator.serviceAccounts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServiceAccounts are the service accounts, in Namespace, the harnessed operator&#8217;s pods run as. Only pods running as one of these service accounts are harnessed. If empty, every pod in Namespace is harnessed, which is what a namespace holding a single operator wants: the service account is named by the operator&#8217;s chart and does not have to be known up front.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>spec.scopeToLabel</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ScopeToLabel is the label that needs to be present on a resource for the harnessed operator to manage it. It is used to scope cluster-wide permissions: if the harnessed operator does a cluster-scoped list or watch through the harness proxy, it only sees resources carrying this label.<br>
+<em>Validation:</em> min length 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_status_3"><a class="anchor" href="#_status_3"></a>Status</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 41.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]object</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditions holds the conditions for the OperatorHarness.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].lastTransitionTime</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].message</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message is a human readable message indicating details about the transition. This may be an empty string.<br>
+<em>Validation:</em> max length 32768</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].observedGeneration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.<br>
+<em>Validation:</em> minimum 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].reason</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reason contains a programmatic identifier indicating the reason for the condition&#8217;s last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.<br>
+<em>Validation:</em> min length 1; max length 1024; pattern <code>^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].status</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enum: True, False, Unknown</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status of the condition, one of True, False, Unknown.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>status.conditions[].type</code> <strong>(required)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type of condition in CamelCase or in foo.example.com/CamelCase.<br>
+<em>Validation:</em> max length 316; pattern <code>^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="libraries.html">Go libraries</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="../../_/js/site-ea6a1a32.js"></script>
+<script async src="../../_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>values.yaml hints :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="values.yaml hints">
+    <meta name="twitter:title" content="values.yaml hints">
+    <link rel="canonical" href="https://docs.helmetica.io/pr-preview/pr-6/chrysopoeia/references/values-hints.html">
+    <meta property="og:url" content="https://docs.helmetica.io/pr-preview/pr-6/chrysopoeia/references/values-hints.html">
+    <link rel="prev" href="configuration.html">
+    <link rel="next" href="libraries.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="../../_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = '../../_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io/pr-preview/pr-6">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="chrysopoeia" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Chrysopoeia</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../explanations/architecture.html">explanations/architecture.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">How-tos</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/install.html">how-tos/install.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/platform-values.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/develop.html">Develop</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">references/configuration.adoc</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="values-hints.html">values.yaml hints</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="libraries.html">Go libraries</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Generated reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">API reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Chrysopoeia</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="../../reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="../../reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="../../cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="../../ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="../../transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="../../aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="../../ampulla/index.html">Ampulla</a></li>
+        <li class="component is-current"><a class="title" href="../index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="../../custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="../../libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="../../sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="../../athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="../../index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Chrysopoeia</a></li>
+    <li>References</li>
+    <li><a href="values-hints.html">values.yaml hints</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/helmetica-framework/chrysopoeia/edit/main/docs/modules/ROOT/pages/references/values-hints.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">values.yaml hints</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Chrysopoeia generates a claim CRD from a chart&#8217;s <code>values.yaml</code>.
+Every value turns into a field of the CRD, and the type of the field is guessed from the default value.
+Guessing only goes so far.
+An empty list has nothing to guess from, and not every value should be settable by a user in the first place.
+Hints are how you correct that.</p>
+</div>
+<div class="paragraph">
+<p>A hint is a key that sits next to the value it describes, with the same name and a <code>#</code> in front.
+<code>#</code> starts a comment in YAML, so the key has to be quoted.</p>
+</div>
+<div class="paragraph">
+<p>Pure schema hints without a corresponding key are supported.
+Descriptions can be passed by using the <code>description</code> field of the hint.</p>
+</div>
+<div class="paragraph">
+<p>Using the <code>description</code> field can be useful to have full control over formatting and whitespace.</p>
+</div>
+<div class="listingblock">
+<div class="title">A hint next to its value</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#replicas':
+  type: integer
+replicas:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hints never reach the service.
+They are read while the CRD is generated and dropped afterwards, so the upstream chart never sees them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descriptions"><a class="anchor" href="#_descriptions"></a>Descriptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The comment above a key becomes the description of the field in the CRD.
+This needs no hint, it happens for every key that has a comment.
+Users read those descriptions with <code>kubectl explain</code>, so it&#8217;s worth writing them.</p>
+</div>
+<div class="listingblock">
+<div class="title">Comments become descriptions</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># The hostname the service is reachable under.
+# Leave empty to disable ingress.
+ingressHostname: ""</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hiding"><a class="anchor" href="#hiding"></a>Hiding values</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>export: false</code> keeps a value out of the CRD.
+The value still applies, it just stops being something a user can set.
+This is how you pin things that must not be changed per instance, like K8up&#8217;s backup annotations.</p>
+</div>
+<div class="paragraph">
+<p>Hiding is inherited.
+A hint on an object hides everything below it, and an <code>export: true</code> deeper down brings the field and all its fields below back.</p>
+</div>
+<div class="listingblock">
+<div class="title">Hiding a subtree and exposing one field again</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#internal':
+  export: false <i class="conum" data-value="1"></i><b>(1)</b>
+internal:
+  a:
+    b: ""       <i class="conum" data-value="2"></i><b>(2)</b>
+  c:
+    '#d':
+      export: true <i class="conum" data-value="3"></i><b>(3)</b>
+    d: ""</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Hides <code>internal</code> and everything under it.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Not settable, inherited from <code>internal</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Settable again, the closest hint wins.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If nothing under an object ends up exported, the object disappears from the CRD as well.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A value the generator can&#8217;t read a type from is skipped, with a warning during generation.
+That happens for empty values and for <code>null</code>.
+Give those a <code>type</code> hint.
+Allowed types are <code>boolean</code>, <code>integer</code>, <code>number</code> and <code>string</code>.</p>
+</div>
+<div class="paragraph">
+<p>Values starting with <code>cel:</code> are computed per claim and are never part of the CRD.</p>
+</div>
+<div class="listingblock">
+<div class="title">Typing a value that has no default</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#logLevel':
+  type: string
+logLevel:</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Value without a corresponding key</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#logLevel':
+  type: integer
+  description: |
+    The log level of the service. Higher levels suppress more logs.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restricting_values"><a class="anchor" href="#_restricting_values"></a>Restricting values</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>enum</code> limits a field to a fixed set of values.
+The API server rejects anything else, so users get the error when they apply the claim instead of when the service fails to start.</p>
+</div>
+<div class="listingblock">
+<div class="title">A field with a fixed set of values</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#logLevel':
+  type: string
+  enum: [debug, info, warn, error]
+logLevel:</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_empty_lists_and_objects"><a class="anchor" href="#_empty_lists_and_objects"></a>Empty lists and objects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An empty list or object carries no type either.
+<code>items</code> and <code>properties</code> describe what goes inside.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>items</code> for repeated things: the entries of a list, or the values of a map with keys you don&#8217;t know upfront.
+The <code>'#'</code> key describes a scalar entry.</p>
+</div>
+<div class="listingblock">
+<div class="title">Lists and maps of scalars</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#tags':
+  items:
+    '#':
+      type: string
+tags: [] <i class="conum" data-value="1"></i><b>(1)</b>
+
+'#labels':
+  items:
+    '#':
+      type: string
+labels: {} <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A list of strings.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A map with free-form keys and string values.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For entries that are objects, describe their fields instead of using <code>'#'</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">A list of objects</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#ports':
+  items:
+    # The name of the port.
+    '#name':
+      type: string
+    '#port':
+      type: integer
+ports: []</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use <code>properties</code> when the object has a fixed set of fields rather than free-form keys.</p>
+</div>
+<div class="listingblock">
+<div class="title">An object with known fields</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#resources':
+  properties:
+    '#cpu':
+      type: string
+    '#memory':
+      type: string
+resources: {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The shorter way to describe entries is to write an example entry instead of hints, which is often easier to read.</p>
+</div>
+<div class="listingblock">
+<div class="title">An example entry in place of hints</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#ports':
+  items:
+    # The name of the port.
+    name: !!str
+    port: 0
+ports: []</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_limits"><a class="anchor" href="#_limits"></a>Limits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>max_length</code>, <code>max_items</code> and <code>max_properties</code> cap a string, a list and a map.
+The API server enforces them, and they keep the cost of <a href="#validation">validation rules</a> within its budget.</p>
+</div>
+<div class="listingblock">
+<div class="title">Capping a string and a list</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#tag':
+  max_length: 63
+tag: "1.0.0"
+
+'#endpoints':
+  max_items: 5
+endpoints: []</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="validation"><a class="anchor" href="#validation"></a>Validation rules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>validation</code> adds <a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#validation-rules">CEL validation rules</a> to a field.
+Each entry becomes one <code>x-kubernetes-validations</code> rule; <code>message_expression</code>, <code>reason</code>, <code>field_path</code> and <code>optional_old_self</code> map to their Kubernetes counterparts.</p>
+</div>
+<div class="listingblock">
+<div class="title">A rule on a field and one across fields</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#replicas':
+  validation:
+    - rule: "self &gt;= 1"
+      message: "replicas must be at least 1"
+replicas: 1
+
+'#database':
+  validation:
+    - rule: "self.mode != 'Manual' || has(self.replicas)"
+      message: "replicas is required when mode is Manual"
+      field_path: .replicas</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A rule can also make a field immutable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">'#tag':
+  validation:
+    - rule: "!oldSelf.hasValue() || self == oldSelf.value()"
+      message: "tag is immutable"
+      optional_old_self: true
+tag: "1.0.0"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="configuration.html">references/configuration.adoc</a></span>
+  <span class="next"><a href="libraries.html">Go libraries</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="../../_/js/site-ea6a1a32.js"></script>
+<script async src="../../_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

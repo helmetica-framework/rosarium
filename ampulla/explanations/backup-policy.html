@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Asking for backups :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="Asking for backups">
+    <meta name="twitter:title" content="Asking for backups">
+    <link rel="canonical" href="https://docs.helmetica.io/ampulla/explanations/backup-policy.html">
+    <meta property="og:url" content="https://docs.helmetica.io/ampulla/explanations/backup-policy.html">
+    <link rel="prev" href="../index.html">
+    <link rel="next" href="bucket-only.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="../../_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = '../../_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ampulla" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Ampulla</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="backup-policy.html">Asking for backups</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="bucket-only.html">Services that back themselves up</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Design notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="status.html">Status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">How-tos</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/install.html">Install</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/try-on-athanor.html">Try it on athanor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/develop.html">Develop</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references/configuration.html">references/configuration.adoc</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Generated reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references/api.html">API reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Ampulla</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="../../reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="../../reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="../../cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="../../ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="../../transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="../../aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component is-current"><a class="title" href="../index.html">Ampulla</a></li>
+        <li class="component"><a class="title" href="../../chrysopoeia/index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="../../custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="../../libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="../../sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="../../athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="../../index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Ampulla</a></li>
+    <li>Explanations</li>
+    <li><a href="backup-policy.html">Asking for backups</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/helmetica-framework/ampulla/edit/main/docs/modules/ROOT/pages/explanations/backup-policy.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">Asking for backups</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The policy is the entire contract. It carries no reference to whatever created it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ampulla.helmetica.io/v1
+kind: BackupPolicy
+metadata:
+  name: orders
+spec: {}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An empty spec is a complete policy — it takes the controller&#8217;s defaults. Each field
+overrides one of them:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Schedule</code>: ampulla drives k8up. <code>BucketOnly</code>: ampulla provisions the bucket and the service backs itself up into it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule.backup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--default-schedule</code> (<code>@daily-random</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When the backup runs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule.prune</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--default-prune-schedule</code> (<code>@weekly-random</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When old snapshots are forgotten and pruned. Empty means no prune job</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule.check</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--default-check-schedule</code> (<code>@weekly-random</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When the restic repository is verified. Empty means no check job</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>retention.keep{Last,Hourly,Daily,Weekly,Monthly,Yearly}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>keepDaily: 7</code>, <code>keepWeekly: 4</code>, <code>keepMonthly: 6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How many snapshots survive a prune</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bucketClassName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--default-bucket-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which object storage the backups land in</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bucketAccessClassName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--default-bucket-access-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which COSI BucketAccessClass mints the credentials</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>-random</code> schedules are k8up&#8217;s: they spread the jobs of every service in the cluster
+over the window instead of starting every backup in the same minute.</p>
+</div>
+<div class="paragraph">
+<p>The result is reported back on the policy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ kubectl get backuppolicy orders -o jsonpath='{.status}' | jq
+{
+  "phase": "Ready",
+  "observedGeneration": 1,
+  "bucket": "bucket-8f2a1c...",
+  "endpoint": "http://garage-s3.garage-system.svc:3900",
+  "region": "garage",
+  "credentialsSecret": "orders-backup-credentials",
+  "schedule": "0 2 * * *",
+  "message": "Backing up to bucket-8f2a1c... in http://garage-s3.garage-system.svc:3900"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_where_the_policy_comes_from"><a class="anchor" href="#_where_the_policy_comes_from"></a>Where the policy comes from</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nothing in ampulla creates policies. In the framework a reagent&#8217;s chart renders one from
+its own values — the <a href="https://github.com/helmetica-framework/ferment">ferment</a> starter
+chart every reagent is scaffolded from ships the template and the values block, so a
+service&#8217;s owner writes <code>backup.enabled: true</code> and the chart does the rest. Helm puts the
+policy in the release namespace, which is where the service and its volumes already are.</p>
+</div>
+<div class="paragraph">
+<p>That chart is the only thing ampulla and the rest of the framework have in common. ampulla
+has no dependency on the controller that generated the service&#8217;s API, does not watch its
+resources, and cannot tell whether one exists.</p>
+</div>
+<div class="paragraph">
+<p>Applying a policy by hand works just as well, which is what the tests do.</p>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="../index.html">Overview</a></span>
+  <span class="next"><a href="bucket-only.html">Services that back themselves up</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="../../_/js/site-ea6a1a32.js"></script>
+<script async src="../../_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

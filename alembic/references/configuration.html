@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Configuration reference :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="Configuration reference">
+    <meta name="twitter:title" content="Configuration reference">
+    <link rel="canonical" href="https://docs.helmetica.io/alembic/references/configuration.html">
+    <meta property="og:url" content="https://docs.helmetica.io/alembic/references/configuration.html">
+    <link rel="prev" href="../how-tos/develop.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="../../_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = '../../_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="alembic" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Alembic</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">Explanations</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../explanations/architecture.html">Layout</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">How-tos</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/install.html">Use from jsonnet</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/bump-version.html">Bump a version</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-tos/develop.html">Develop</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle" aria-label="Toggle section"></button>
+    <span class="nav-text">References</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="configuration.html">Configuration reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Alembic</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="../../reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="../../reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="../../cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="../../ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="../../transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="../../adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="../../aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="../../ampulla/index.html">Ampulla</a></li>
+        <li class="component"><a class="title" href="../../chrysopoeia/index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="../../custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="../../libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="../../sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component is-current"><a class="title" href="../index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="../../athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="../../index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Alembic</a></li>
+    <li>References</li>
+    <li><a href="configuration.html">Configuration reference</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/helmetica-framework/alembic/edit/main/docs/modules/ROOT/pages/references/configuration.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">Configuration reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>lib/alembic.libsonnet</code> has two functions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-jsonnet hljs" data-lang="jsonnet">local alembic = import 'alembic/lib/alembic.libsonnet';
+
+alembic.framework(settings)
+alembic.monitoring(settings)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both functions merge <code>settings</code> onto <code>defaults.yaml</code>. Objects merge deep. Arrays and scalars replace. Unknown keys do not change the output.</p>
+</div>
+<div class="paragraph">
+<p><code>framework(settings)</code> returns named parts. Each part is a list of Kubernetes objects.</p>
+</div>
+<div class="paragraph">
+<p><code>monitoring(settings)</code> returns named parts. It returns <code>{}</code> when <code>monitoring_stack.enabled</code> is false.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_top_level"><a class="anchor" href="#_top_level"></a>Top level</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Setting</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"helmetica-framework"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace for all framework objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespaceMetadata</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extra metadata for the framework Namespace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>createNamespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the framework Namespace object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>images</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see Images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registry, repository and tag overrides.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chrysopoeia</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chrysopoeia controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>proxy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chrysopoeia proxy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flux</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flux controllers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>custos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custos controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ampulla controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cosi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">COSI CRDs and controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aludel_cloudscale</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudscale.ch COSI driver.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adept</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adept controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sigillum</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sigillum controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>libra</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libra controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see Monitoring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring stack.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controllers"><a class="anchor" href="#_controllers"></a>Controllers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A missing <code>enabled</code> key means <code>true</code>. A missing <code>crds.enabled</code> key means <code>true</code>. Set a key to <code>false</code> to leave out that output.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Setting</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chrysopoeia.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Chrysopoeia controller and its RBAC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chrysopoeia.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Chrysopoeia CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chrysopoeia.admission</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"builtin"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admission mode. <code>"builtin"</code> keeps the MutatingAdmissionPolicy. <code>"espejote"</code> uses the Espejote rule instead. Any other value fails the render.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>proxy.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Chrysopoeia proxy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flux.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Flux source, image reflector and helm controllers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>custos.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Custos controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>custos.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Custos CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Ampulla controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Ampulla CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla.default_bucket_class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string or null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>--default-bucket-class=&lt;value&gt;</code> to the manager args. <code>null</code> omits the flag.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla.default_bucket_access_class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string or null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>--default-bucket-access-class=&lt;value&gt;</code> to the manager args. <code>null</code> omits the flag.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cosi.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the COSI CRDs and controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aludel_cloudscale.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the cloudscale.ch COSI driver.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adept.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Adept controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adept.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Adept CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sigillum.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Sigillum controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sigillum.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Sigillum CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>libra.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Libra controller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>libra.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Libra CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>libra.bucketSecretName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"libra-billing"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secret that holds the S3 endpoint, bucket and keys.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Monitoring is off by default.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Setting</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the monitoring stack.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.crds.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Render the Prometheus Operator CRDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.namespace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string or null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace for the stack. <code>null</code> means <code>&lt;namespace&gt;-monitoring</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.namespaceMetadata</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{ labels: { "helmetica.io/monitoring": "system" } }</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extra metadata for the monitoring Namespace. The render adds the <code>name</code> label.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.platform</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>""</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform name. Required when <code>enabled</code> is true. See Platforms.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.alertmanager.replicas</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alertmanager replica count.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.alertmanager.resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see <code>defaults.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alertmanager resource requests and limits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.alertmanager.retention</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"120h"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alertmanager data retention.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.alertmanager.global_config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alertmanager <code>global</code> config. When empty, the render leaves out the key.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.prometheus.retention</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"8d"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prometheus data retention.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monitoring_stack.prometheus.resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see <code>defaults.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prometheus resource requests and limits.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_platforms"><a class="anchor" href="#_platforms"></a>Platforms</h3>
+<div class="paragraph">
+<p><code>monitoring_stack.platform</code> must be one of these values:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Platform</th>
+<th class="tableblock halign-left valign-top">Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"talos"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set <code>fsGroup: 2000</code>, <code>runAsNonRoot: true</code> and <code>runAsUser: 1000</code> on Alertmanager and Prometheus.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"openshift4"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add the <code>tls-client-certificate-auth</code> scrape class and the <code>ocp-metrics-client-certs</code> secret to Prometheus.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"kind"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add the <code>kubelet-serviceaccount-auth</code> scrape class, the kubelet ServiceMonitor and RBAC for <code>nodes/metrics</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_images"><a class="anchor" href="#_images"></a>Images</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Set <code>images.&lt;name&gt;.registry</code>, <code>images.&lt;name&gt;.repository</code> or <code>images.&lt;name&gt;.tag</code>. If you leave out a field, the default stays.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Image key</th>
+<th class="tableblock halign-left valign-top">Default registry and repository</th>
+<th class="tableblock halign-left valign-top">Default tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chrysopoeia</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/chrysopoeia</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>custos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/custos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ampulla</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/ampulla</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adept</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/adept</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sigillum</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/sigillum</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>libra</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/libra</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aludel-cloudscale</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/helmetica-framework/aludel-cloudscale</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flux-source-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/fluxcd/source-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v1.10.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flux-image-reflector-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/fluxcd/image-reflector-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v1.3.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flux-helm-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ghcr.io/fluxcd/helm-controller</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v1.7.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>alertmanager</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quay.io/prometheus/alertmanager</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v0.35.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prometheus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quay.io/prometheus/prometheus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v3.16.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prometheus-operator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quay.io/prometheus-operator/prometheus-operator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v0.95.2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prometheus-config-reloader</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quay.io/prometheus-operator/prometheus-config-reloader</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>v0.95.2</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The COSI controller image does not come from this table. It stays as vendored. Because there are no stable releases.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_inputs"><a class="anchor" href="#_build_inputs"></a>Build inputs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>controllers</code> and <code>vendor/</code> are build inputs. They do not change at call time. To change an image tag, use <code>images.&lt;name&gt;.tag</code>.</p>
+</div>
+<div class="paragraph">
+<p>To change a controller version, edit <code>defaults.yaml</code> and run <code>just gen-golden</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Framework only:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-jsonnet hljs" data-lang="jsonnet">local alembic = import 'alembic/lib/alembic.libsonnet';
+
+alembic.framework({
+  namespace: 'my-framework',
+  images: { custos: { tag: 'dev-12' } },
+  ampulla: { enabled: false },
+  libra: { bucketSecretName: 'my-bucket' },
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Framework and monitoring:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-jsonnet hljs" data-lang="jsonnet">local alembic = import 'alembic/lib/alembic.libsonnet';
+
+local settings = {
+  namespace: 'my-framework',
+  monitoring_stack: {
+    enabled: true,
+    platform: 'talos',
+    crds: { enabled: true },
+    prometheus: { retention: '14d' },
+  },
+};
+
+alembic.framework(settings) + alembic.monitoring(settings)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The monitoring namespace is <code>my-framework-monitoring</code> in this example.</p>
+</div>
+</div>
+</div>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="../how-tos/develop.html">Develop</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="../../_/js/site-ea6a1a32.js"></script>
+<script async src="../../_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>

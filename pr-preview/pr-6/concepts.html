@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Concepts :: Helmetica Docs</title>
+    <meta property="og:title" itemprop="name" content="Concepts">
+    <meta name="twitter:title" content="Concepts">
+    <link rel="canonical" href="https://docs.helmetica.io/pr-preview/pr-6/concepts.html">
+    <meta property="og:url" content="https://docs.helmetica.io/pr-preview/pr-6/concepts.html">
+    <link rel="prev" href="getting-started.html">
+    <link rel="next" href="architecture.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="./_/css/site-db8bacea.css">
+    <link rel="stylesheet" href="./_/css/helmetica.css">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Helmetica Docs" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="vshn_ch">
+<meta property="og:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<link itemprop="image" href="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+<meta name="twitter:image" content="https://handbook.vshn.ch/_images/2021_LOGO_VSHN_color-notext-square-transparent.png">
+    <meta property="og:locale" content="en_US" />
+    <script>var uiRootPath = './_'</script>
+    <script>var searchPagePath = 'search.html'</script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="apple-touch-icon" sizes="152x152" href="/_/img/favicon-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/_/img/favicon-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/_/img/favicon-180x180.png">
+
+<link rel="icon" type="image/png" href="/_/img/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/_/img/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/_/img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/_/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/_/img/favicon-32x32.png" sizes="32x32">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="vshn_logo"></div>
+        <a href="https://docs.helmetica.io/pr-preview/pr-6">Helmetica Docs
+          </a>
+      </div>
+      <button class="navbar-search-toggle" aria-label="Toggle search" aria-expanded="false" data-target="topbar-search">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </button>
+      <button class="navbar-burger" aria-label="Toggle navigation menu" aria-expanded="false" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-search" class="navbar-search">
+      <div class="search-field">
+        <input id="search-input" class="search-input" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="search-button" aria-label="Search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">VSHN</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" target="_blank" href="https://www.vshn.ch/">Main website</a>
+    <a class="navbar-item" target="_blank" href="https://handbook.vshn.ch/">Handbook</a>
+    <a class="navbar-item" target="_blank" href="https://kb.vshn.ch/">Knowledge Base</a>
+    <a class="navbar-item" target="_blank" href="https://products.vshn.ch/">Products</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appuio.cloud/">APPUiO Cloud Docs</a>
+    <a class="navbar-item" target="_blank" href="https://docs.appcat.ch/">AppCat Docs</a>
+    <a class="navbar-item" target="_blank" href="https://syn.tools/">Project Syn</a>
+    <a class="navbar-item" target="_blank" href="https://k8up.io/">K8up</a>
+  </div>
+</div>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ROOT" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Helmetica Framework</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting-started.html">Getting started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="guidelines.html">Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reagents.html">Reagent catalogue</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Helmetica Framework</span>
+  </div>
+  <ul class="components">
+    <li class="component-group"><span class="group-title">Framework</span>
+      <ul class="group-components">
+        <li class="component is-current"><a class="title" href="index.html">Helmetica Framework</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="reagents.html">Catalogue</a></li>
+        <li class="component"><a class="title" href="reagent-mariadb/index.html">MariaDB</a></li>
+        <li class="component"><a class="title" href="reagent-redis/index.html">Redis</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Building reagents</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="azoth/index.html">Azoth</a></li>
+        <li class="component"><a class="title" href="cupel/index.html">Cupel</a></li>
+        <li class="component"><a class="title" href="ferment/index.html">Ferment</a></li>
+        <li class="component"><a class="title" href="transmuter/index.html">Transmuter</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Operators</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="adept/index.html">Adept</a></li>
+        <li class="component"><a class="title" href="aludel-cloudscale/index.html">Aludel cloudscale</a></li>
+        <li class="component"><a class="title" href="ampulla/index.html">Ampulla</a></li>
+        <li class="component"><a class="title" href="chrysopoeia/index.html">Chrysopoeia</a></li>
+        <li class="component"><a class="title" href="custos/index.html">Custos</a></li>
+        <li class="component"><a class="title" href="libra/index.html">Libra</a></li>
+        <li class="component"><a class="title" href="sigillum/index.html">Sigillum</a></li>
+      </ul>
+    </li>
+    <li class="component-group"><span class="group-title">Platform</span>
+      <ul class="group-components">
+        <li class="component"><a class="title" href="alembic/index.html">Alembic</a></li>
+        <li class="component"><a class="title" href="athanor/index.html">Athanor</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle" aria-label="Toggle sidebar"></button>
+  <a href="index.html" class="home-link" aria-label="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Helmetica Framework</a></li>
+    <li><a href="concepts.html">Concepts</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc" data-pagefind-body>
+<h1 class="page" data-pagefind-meta="title">Concepts</h1>
+<div class="paragraph">
+<p>Helmetica names most of its parts after alchemy.
+The table lists every term used across the framework: what it meant to an alchemist, and what it is for here.
+Terms without an alchemical origin have a dash in the middle column.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">In alchemy</th>
+<th class="tableblock halign-left valign-top">In the Helmetica framework</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="action"></a>Action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How you ask for a ritual to be run on an instance. You name the ritual, <a href="adept/index.html" class="xref page">adept</a> runs it once and reports back whether it worked. Running the same ritual again means creating a new one.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="adept"></a>Adept</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An alchemist who has attained the secret knowledge and performs the rituals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operator that carries out rituals. It picks up your requests and runs them where the instance lives, so you never have to reach into an instance namespace yourself.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="aludel"></a>Aludel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The sealed vessel an alchemist sublimes into: a container you put things in and close.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The piece that hands out object storage. A workload asks for a bucket and gets credentials back, with nobody logging into the cloud provider&#8217;s control panel.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="approval"></a>Approval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your say in when an instance moves to a new revision. Either it happens automatically, or new revisions wait until someone approves them, which lets you review a change before it reaches a running service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="assay"></a>Assay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testing an ore or alloy to determine its purity and content.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The safety check on a reagent before you publish it: chart validity plus CRD breaking-change detection against the latest published version of the same major. It touches nothing and needs no cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="athanor"></a>Athanor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The alchemist&#8217;s slow furnace, which holds a steady heat for days.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your development environment: a throwaway cluster with the whole framework already in it, so you can build and try out a reagent locally.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="azoth"></a>Azoth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The universal solvent, the mercury of the philosophers, the active principle in every substance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The library chart holding the templates every reagent renders on top of its service, so a fix reaches all reagents through a version bump instead of a copy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bundle"></a>Bundle API group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API group of a generated CRD, <code>&lt;ClaimDefinition name&gt;.helmetica-bundles.io</code>, for example <code>v0.redis.helmetica-bundles.io</code>. It keeps each service&#8217;s kind apart from everything else in the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="chrysopoeia"></a>Chrysopoeia</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gold-making, the transmutation of base metal into gold.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operator that turns a published reagent into something users can order. It generates a CRD from the chart&#8217;s <code>values.yaml</code> and releases every claim into its own instance namespace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="claim"></a>Claim</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">What a user creates to order an instance of a service. It says which version they want and how it is configured, and points at where the running instance ended up.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="claimdefinition"></a>ClaimDefinition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How a service is installed on a cluster, one per major version. It says which chart to offer and where to look for new versions of it. Its name becomes the bundle API group. Once it exists, users can order instances of the service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="claimrevision"></a>ClaimRevision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A record of how a claim was configured at one point in time. The trail of them shows what changed, and it is what approval acts on.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="computed-values"></a>Computed values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">What a reagent&#8217;s <code>cel:</code> expressions evaluate to for a given claim. Helm cannot evaluate them, so <code>transmuter values</code> writes them to a file the unit tests read.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="cupel"></a>Cupel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A shallow, porous vessel used in assaying to separate precious metals and reveal their true content.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tool for seeing what a change would do before it happens. It renders two things side by side: a chart against a newer one, or against a running instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="definition"></a>Definition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The recipe behind a ritual: what happens when someone asks for that operation. A reagent ships one per operation it supports.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="digest"></a>Digest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digestion: gentle, prolonged heating of matter in a closed vessel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The step that installs the supporting pieces into the development cluster. Rarely run on its own, since igniting the furnace does it for you.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="ferment"></a>Ferment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A small bit of transformed matter added to a base mass to convert the whole, like leaven in dough. The philosopher&#8217;s stone is often called ferment for this reason.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The starter chart every reagent is created from. It brings the day-2 features along: operations, backups, network policies, so you don&#8217;t build them per service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="hearth"></a>Hearth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The floor of the furnace, where the fire is laid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Where the development environment keeps the supporting pieces it installs, one folder each. Edit one and re-ignite to change what your local cluster runs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="helmetica"></a>Helmetica</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From Hermetic, after Hermes Trismegistus, the mythical father of alchemy.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The framework itself. It lets you offer one Helm chart as a service that users can order many instances of.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="ignite"></a>Ignite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lighting the furnace.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting the development environment (<code>just ignite</code>): you get a cluster with everything installed and are ready to work.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="instance-namespace"></a>Instance namespace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The namespace one ordered instance lives in, created for it and removed with it. It keeps instances of the same service from interfering with each other.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="ledger"></a>Ledger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Looking through an instance&#8217;s history with <code>cupel ledger</code>: what it was configured with before, what has changed since, and approving a pending change from there.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="prima-materia"></a>Prima materia</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first matter, the formless raw substance every transmutation starts from.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The upstream Helm chart (repository URL and version) you want to offer as a service. You don&#8217;t rewrite it, it ends up as a dependency of the reagent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="quench"></a>Quench</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plunging hot metal into liquid to cool it, ending the work.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tearing the development cluster down when you are done with it, or when you want a clean one.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="reagent"></a>Reagent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A substance added to bring about a reaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A service chart: an upstream chart wrapped so the framework can offer it. This is what a service maintainer maintains, publishes and ships, and what users order.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="ritual"></a>Ritual</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The prescribed sequence of operations an adept performs on matter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An operation a service offers on a running instance, for example a restart or maintenance. Shipped with the reagent as a <code>Definition</code>, so users can trigger it without knowing how the service works inside.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="touchstone"></a>Touchstone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The dark stone an assayer streaks gold across to read its purity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The end-to-end test of a reagent against a running athanor: it publishes the chart, orders an instance from it and checks that the instance comes up. The one that ships is generic, so add the checks that matter for your service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="transmuter"></a>Transmuter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To transmute: to change one substance into another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tool a service maintainer starts with. It turns an upstream chart into a reagent, adds rituals to it, and assays it. After that the reagent is yours to adjust.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="weigh"></a>Weigh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Putting two samples on the assayer&#8217;s balance to see which way they tip.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparing two things with <code>cupel weigh</code> and seeing exactly what differs, typically a running instance against the version you are thinking of moving it to.</p></td>
+</tr>
+</tbody>
+</table>
+<nav class="pagination" data-pagefind-ignore>
+  <span class="prev"><a href="getting-started.html">Getting started</a></span>
+  <span class="next"><a href="architecture.html">Architecture</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright © VSHN 2026 – All Rights Reserved. <a href="https://legal.docs.vshn.ch/legal/privacy_policy_en.html">Privacy Policy</a>, <a href="https://vshn.ch/en/imprint/">Imprint</a>, and <a href="https://vshn.ch/en/contact/">Contact</a>.</p>
+</footer>
+<script src="./_/js/site-ea6a1a32.js"></script>
+<script async src="./_/js/vendor/highlight-38cd52df.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+  </body>
+</html>
